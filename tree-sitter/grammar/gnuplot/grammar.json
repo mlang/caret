@@ -1,0 +1,1946 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "gnuplot",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_statement"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_newline"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_escaped_newline": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\r?\\n"
+          }
+        ]
+      }
+    },
+    "_newline": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\r?\\n"
+      }
+    },
+    "_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "plot_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "splot_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fit_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unset_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "load_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pause_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "reset_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "print_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "loop"
+        }
+      ]
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "["
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                },
+                {
+                  "type": "STRING",
+                  "value": "]"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "array_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "array"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_basic"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "function_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameter_list"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "parameter_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "identifier"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "plot_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "plot"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "plot_item_list"
+        }
+      ]
+    },
+    "splot_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "splot"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "plot_item_list"
+        }
+      ]
+    },
+    "fit_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fit"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_string"
+        },
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ":"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "via"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_expression_basic"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expression_basic"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "load_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "load"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "pause_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_basic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_basic"
+        }
+      ]
+    },
+    "reset_command": {
+      "type": "STRING",
+      "value": "reset"
+    },
+    "print_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "print"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_list"
+        }
+      ]
+    },
+    "set_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set_keyword"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "set_arguments"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "set_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "angles"
+        },
+        {
+          "type": "STRING",
+          "value": "isosamples"
+        },
+        {
+          "type": "STRING",
+          "value": "pointintervalbox"
+        },
+        {
+          "type": "STRING",
+          "value": "warnings"
+        },
+        {
+          "type": "STRING",
+          "value": "arrow"
+        },
+        {
+          "type": "STRING",
+          "value": "isosurface"
+        },
+        {
+          "type": "STRING",
+          "value": "pointsize"
+        },
+        {
+          "type": "STRING",
+          "value": "x2data"
+        },
+        {
+          "type": "STRING",
+          "value": "autoscale"
+        },
+        {
+          "type": "STRING",
+          "value": "isotropic"
+        },
+        {
+          "type": "STRING",
+          "value": "polar"
+        },
+        {
+          "type": "STRING",
+          "value": "x2dtics"
+        },
+        {
+          "type": "STRING",
+          "value": "bars"
+        },
+        {
+          "type": "STRING",
+          "value": "jitter"
+        },
+        {
+          "type": "STRING",
+          "value": "print"
+        },
+        {
+          "type": "STRING",
+          "value": "x2label"
+        },
+        {
+          "type": "STRING",
+          "value": "bmargin"
+        },
+        {
+          "type": "STRING",
+          "value": "key"
+        },
+        {
+          "type": "STRING",
+          "value": "psdir"
+        },
+        {
+          "type": "STRING",
+          "value": "x2mtics"
+        },
+        {
+          "type": "STRING",
+          "value": "border"
+        },
+        {
+          "type": "STRING",
+          "value": "label"
+        },
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "x2range"
+        },
+        {
+          "type": "STRING",
+          "value": "boxdepth"
+        },
+        {
+          "type": "STRING",
+          "value": "linetype"
+        },
+        {
+          "type": "STRING",
+          "value": "raxis"
+        },
+        {
+          "type": "STRING",
+          "value": "x2tics"
+        },
+        {
+          "type": "STRING",
+          "value": "boxwidth"
+        },
+        {
+          "type": "STRING",
+          "value": "link"
+        },
+        {
+          "type": "STRING",
+          "value": "rgbmax"
+        },
+        {
+          "type": "STRING",
+          "value": "x2zeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "cbdata"
+        },
+        {
+          "type": "STRING",
+          "value": "lmargin"
+        },
+        {
+          "type": "STRING",
+          "value": "rlabel"
+        },
+        {
+          "type": "STRING",
+          "value": "xdata"
+        },
+        {
+          "type": "STRING",
+          "value": "cbdtics"
+        },
+        {
+          "type": "STRING",
+          "value": "loadpath"
+        },
+        {
+          "type": "STRING",
+          "value": "rmargin"
+        },
+        {
+          "type": "STRING",
+          "value": "xdtics"
+        },
+        {
+          "type": "STRING",
+          "value": "cblabel"
+        },
+        {
+          "type": "STRING",
+          "value": "locale"
+        },
+        {
+          "type": "STRING",
+          "value": "rrange"
+        },
+        {
+          "type": "STRING",
+          "value": "xlabel"
+        },
+        {
+          "type": "STRING",
+          "value": "cbmtics"
+        },
+        {
+          "type": "STRING",
+          "value": "log"
+        },
+        {
+          "type": "STRING",
+          "value": "rtics"
+        },
+        {
+          "type": "STRING",
+          "value": "xmtics"
+        },
+        {
+          "type": "STRING",
+          "value": "cbrange"
+        },
+        {
+          "type": "STRING",
+          "value": "logscale"
+        },
+        {
+          "type": "STRING",
+          "value": "samples"
+        },
+        {
+          "type": "STRING",
+          "value": "xrange"
+        },
+        {
+          "type": "STRING",
+          "value": "cbtics"
+        },
+        {
+          "type": "STRING",
+          "value": "macros"
+        },
+        {
+          "type": "STRING",
+          "value": "size"
+        },
+        {
+          "type": "STRING",
+          "value": "xtics"
+        },
+        {
+          "type": "STRING",
+          "value": "chi_shapes"
+        },
+        {
+          "type": "STRING",
+          "value": "mapping"
+        },
+        {
+          "type": "STRING",
+          "value": "spiderplot"
+        },
+        {
+          "type": "STRING",
+          "value": "xyplane"
+        },
+        {
+          "type": "STRING",
+          "value": "clabel"
+        },
+        {
+          "type": "STRING",
+          "value": "margin"
+        },
+        {
+          "type": "STRING",
+          "value": "style"
+        },
+        {
+          "type": "STRING",
+          "value": "xzeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "clip"
+        },
+        {
+          "type": "STRING",
+          "value": "margins"
+        },
+        {
+          "type": "STRING",
+          "value": "surface"
+        },
+        {
+          "type": "STRING",
+          "value": "y2data"
+        },
+        {
+          "type": "STRING",
+          "value": "cntrlabel"
+        },
+        {
+          "type": "STRING",
+          "value": "micro"
+        },
+        {
+          "type": "STRING",
+          "value": "table"
+        },
+        {
+          "type": "STRING",
+          "value": "y2dtics"
+        },
+        {
+          "type": "STRING",
+          "value": "cntrparam"
+        },
+        {
+          "type": "STRING",
+          "value": "minussign"
+        },
+        {
+          "type": "STRING",
+          "value": "term"
+        },
+        {
+          "type": "STRING",
+          "value": "y2label"
+        },
+        {
+          "type": "STRING",
+          "value": "color"
+        },
+        {
+          "type": "STRING",
+          "value": "missing"
+        },
+        {
+          "type": "STRING",
+          "value": "terminal"
+        },
+        {
+          "type": "STRING",
+          "value": "y2mtics"
+        },
+        {
+          "type": "STRING",
+          "value": "colorbox"
+        },
+        {
+          "type": "STRING",
+          "value": "monochrome"
+        },
+        {
+          "type": "STRING",
+          "value": "termoption"
+        },
+        {
+          "type": "STRING",
+          "value": "y2range"
+        },
+        {
+          "type": "STRING",
+          "value": "colormap"
+        },
+        {
+          "type": "STRING",
+          "value": "mouse"
+        },
+        {
+          "type": "STRING",
+          "value": "theta"
+        },
+        {
+          "type": "STRING",
+          "value": "y2tics"
+        },
+        {
+          "type": "STRING",
+          "value": "colorsequence"
+        },
+        {
+          "type": "STRING",
+          "value": "mttics"
+        },
+        {
+          "type": "STRING",
+          "value": "tics"
+        },
+        {
+          "type": "STRING",
+          "value": "y2zeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "contour"
+        },
+        {
+          "type": "STRING",
+          "value": "multiplot"
+        },
+        {
+          "type": "STRING",
+          "value": "ticscale"
+        },
+        {
+          "type": "STRING",
+          "value": "ydata"
+        },
+        {
+          "type": "STRING",
+          "value": "contourfill"
+        },
+        {
+          "type": "STRING",
+          "value": "mx2tics"
+        },
+        {
+          "type": "STRING",
+          "value": "ticslevel"
+        },
+        {
+          "type": "STRING",
+          "value": "ydtics"
+        },
+        {
+          "type": "STRING",
+          "value": "cornerpoles"
+        },
+        {
+          "type": "STRING",
+          "value": "mxtics"
+        },
+        {
+          "type": "STRING",
+          "value": "time_specifiers"
+        },
+        {
+          "type": "STRING",
+          "value": "ylabel"
+        },
+        {
+          "type": "STRING",
+          "value": "dashtype"
+        },
+        {
+          "type": "STRING",
+          "value": "my2tics"
+        },
+        {
+          "type": "STRING",
+          "value": "timefmt"
+        },
+        {
+          "type": "STRING",
+          "value": "ymtics"
+        },
+        {
+          "type": "STRING",
+          "value": "datafile"
+        },
+        {
+          "type": "STRING",
+          "value": "mytics"
+        },
+        {
+          "type": "STRING",
+          "value": "timestamp"
+        },
+        {
+          "type": "STRING",
+          "value": "yrange"
+        },
+        {
+          "type": "STRING",
+          "value": "date_specifiers"
+        },
+        {
+          "type": "STRING",
+          "value": "mztics"
+        },
+        {
+          "type": "STRING",
+          "value": "title"
+        },
+        {
+          "type": "STRING",
+          "value": "ytics"
+        },
+        {
+          "type": "STRING",
+          "value": "decimalsign"
+        },
+        {
+          "type": "STRING",
+          "value": "nonlinear"
+        },
+        {
+          "type": "STRING",
+          "value": "tmargin"
+        },
+        {
+          "type": "STRING",
+          "value": "yzeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "dgrid3d"
+        },
+        {
+          "type": "STRING",
+          "value": "object"
+        },
+        {
+          "type": "STRING",
+          "value": "trange"
+        },
+        {
+          "type": "STRING",
+          "value": "zdata"
+        },
+        {
+          "type": "STRING",
+          "value": "dummy"
+        },
+        {
+          "type": "STRING",
+          "value": "offsets"
+        },
+        {
+          "type": "STRING",
+          "value": "ttics"
+        },
+        {
+          "type": "STRING",
+          "value": "zdtics"
+        },
+        {
+          "type": "STRING",
+          "value": "encoding"
+        },
+        {
+          "type": "STRING",
+          "value": "origin"
+        },
+        {
+          "type": "STRING",
+          "value": "urange"
+        },
+        {
+          "type": "STRING",
+          "value": "zero"
+        },
+        {
+          "type": "STRING",
+          "value": "errorbars"
+        },
+        {
+          "type": "STRING",
+          "value": "output"
+        },
+        {
+          "type": "STRING",
+          "value": "vgrid"
+        },
+        {
+          "type": "STRING",
+          "value": "zeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "fit"
+        },
+        {
+          "type": "STRING",
+          "value": "overflow"
+        },
+        {
+          "type": "STRING",
+          "value": "view"
+        },
+        {
+          "type": "STRING",
+          "value": "zlabel"
+        },
+        {
+          "type": "STRING",
+          "value": "fontpath"
+        },
+        {
+          "type": "STRING",
+          "value": "palette"
+        },
+        {
+          "type": "STRING",
+          "value": "vrange"
+        },
+        {
+          "type": "STRING",
+          "value": "zmtics"
+        },
+        {
+          "type": "STRING",
+          "value": "format"
+        },
+        {
+          "type": "STRING",
+          "value": "parametric"
+        },
+        {
+          "type": "STRING",
+          "value": "vxrange"
+        },
+        {
+          "type": "STRING",
+          "value": "zrange"
+        },
+        {
+          "type": "STRING",
+          "value": "grid"
+        },
+        {
+          "type": "STRING",
+          "value": "paxis"
+        },
+        {
+          "type": "STRING",
+          "value": "vyrange"
+        },
+        {
+          "type": "STRING",
+          "value": "ztics"
+        },
+        {
+          "type": "STRING",
+          "value": "hidden3d"
+        },
+        {
+          "type": "STRING",
+          "value": "pixmap"
+        },
+        {
+          "type": "STRING",
+          "value": "vzrange"
+        },
+        {
+          "type": "STRING",
+          "value": "zzeroaxis"
+        },
+        {
+          "type": "STRING",
+          "value": "history"
+        },
+        {
+          "type": "STRING",
+          "value": "pm3d"
+        },
+        {
+          "type": "STRING",
+          "value": "walls"
+        }
+      ]
+    },
+    "set_argument": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_expression_basic"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression_basic"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "set_arguments": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "set_argument"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "set_argument"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "set_argument"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "range"
+        }
+      ]
+    },
+    "unset_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "set_keyword"
+        }
+      ]
+    },
+    "plot_item_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "plot_item"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "plot_item"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "plot_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "range"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "plot_option"
+          }
+        }
+      ]
+    },
+    "plot_option": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "using_clause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "with_clause"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "title_clause"
+        },
+        {
+          "type": "STRING",
+          "value": "notitle"
+        }
+      ]
+    },
+    "using_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ":"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "with_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "with"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "title_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "title"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "do"
+        },
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "iterator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do_clause"
+        }
+      ]
+    },
+    "iterator": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_range_endpoint"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_range_endpoint"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_range_endpoint"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "do_clause": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_statement"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_newline"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_statement"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_newline"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
+        }
+      ]
+    },
+    "expression_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_array_access": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "_expression_string": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        ]
+      }
+    },
+    "_expression_basic": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "number"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "function_call"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_array_access"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression_string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression_unary"
+          }
+        ]
+      }
+    },
+    "expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression_basic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_binary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_ternary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression_parenthesized"
+        }
+      ]
+    },
+    "_expression_parenthesized": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_expression_unary": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "STRING",
+                "value": "+"
+              },
+              {
+                "type": "STRING",
+                "value": "$"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "_expression_binary": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "operator"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "_expression_ternary": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "STRING",
+            "value": "?"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "STRING",
+          "value": "**"
+        },
+        {
+          "type": "STRING",
+          "value": "=="
+        },
+        {
+          "type": "STRING",
+          "value": "!="
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": ">="
+        }
+      ]
+    },
+    "function_call": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "builtin_function"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "builtin_function": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "abs"
+        },
+        {
+          "type": "STRING",
+          "value": "acos"
+        },
+        {
+          "type": "STRING",
+          "value": "asin"
+        },
+        {
+          "type": "STRING",
+          "value": "atan"
+        },
+        {
+          "type": "STRING",
+          "value": "cos"
+        },
+        {
+          "type": "STRING",
+          "value": "exp"
+        },
+        {
+          "type": "STRING",
+          "value": "log"
+        },
+        {
+          "type": "STRING",
+          "value": "log10"
+        },
+        {
+          "type": "STRING",
+          "value": "sin"
+        },
+        {
+          "type": "STRING",
+          "value": "sprintf"
+        },
+        {
+          "type": "STRING",
+          "value": "sqrt"
+        },
+        {
+          "type": "STRING",
+          "value": "tan"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    "number": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "(?:\\d+\\.\\d*|\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?"
+      }
+    },
+    "string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\""
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "[^\"\\\\]"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "\\\\."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "STRING",
+                "value": "\""
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "'"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "[^'\\\\]"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "\\\\."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "STRING",
+                "value": "'"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "_range_endpoint": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "range": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_range_endpoint"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_range_endpoint"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*\\n"
+          }
+        ]
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[\\t ]"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_escaped_newline"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

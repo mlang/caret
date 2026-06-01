@@ -1,0 +1,1246 @@
+[
+  {
+    "type": "argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_value",
+          "named": true
+        },
+        {
+          "type": "command_option",
+          "named": true
+        },
+        {
+          "type": "paren_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "arithmetic_assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "set_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment_paren_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assignment_literal",
+          "named": true
+        },
+        {
+          "type": "assignment_paren_group",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assignment_literal",
+          "named": true
+        },
+        {
+          "type": "assignment_paren_group",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bracketed_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bracketed_literal",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "call_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "command_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "caret_quoted_assignment_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_literal",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "command_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_sep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "command_sep",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "cond_exec",
+          "named": true
+        },
+        {
+          "type": "echo_off",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cond_exec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "cond_exec",
+          "named": true
+        },
+        {
+          "type": "echo_off",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "echo_off",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "else_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "endlocal_stmt",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "exit_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fd_redirect",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "fd_redirect_op",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "for_set_group",
+          "named": true
+        },
+        {
+          "type": "for_set_literal",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_set_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "for_set_group",
+          "named": true
+        },
+        {
+          "type": "for_set_literal",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_options",
+          "named": true
+        },
+        {
+          "type": "for_set",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "for_variable",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "goto_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_value",
+          "named": true
+        },
+        {
+          "type": "bracketed_value",
+          "named": true
+        },
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "comparison_op",
+          "named": true
+        },
+        {
+          "type": "else_clause",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_option",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "paren_expression",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "macro_invocation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "else_clause",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "paren_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_value",
+          "named": true
+        },
+        {
+          "type": "command_option",
+          "named": true
+        },
+        {
+          "type": "paren_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "command_sep",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "cond_exec",
+          "named": true
+        },
+        {
+          "type": "echo_off",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pipe_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "program",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "command_sep",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "cond_exec",
+          "named": true
+        },
+        {
+          "type": "echo_off",
+          "named": true
+        },
+        {
+          "type": "endlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "exit_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "goto_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "macro_invocation",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "pipe_stmt",
+          "named": true
+        },
+        {
+          "type": "redirect_stmt",
+          "named": true
+        },
+        {
+          "type": "setlocal_stmt",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prompt_assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "assignment_value",
+          "named": true
+        },
+        {
+          "type": "quoted_assignment_value",
+          "named": true
+        },
+        {
+          "type": "set_option",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quoted_assignment_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_literal",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "redirect_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_stmt",
+          "named": true
+        },
+        {
+          "type": "cmd",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "redirection",
+          "named": true
+        },
+        {
+          "type": "variable_assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "redirection",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fd_redirect",
+          "named": true
+        },
+        {
+          "type": "redirect_op",
+          "named": true
+        },
+        {
+          "type": "redirect_target",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "setlocal_stmt",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "variable_assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "arithmetic_assignment",
+          "named": true
+        },
+        {
+          "type": "assignment_value",
+          "named": true
+        },
+        {
+          "type": "caret_quoted_assignment_value",
+          "named": true
+        },
+        {
+          "type": "prompt_assignment",
+          "named": true
+        },
+        {
+          "type": "quoted_assignment_value",
+          "named": true
+        },
+        {
+          "type": "set_keyword",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "variable_reference",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^\"",
+    "named": false
+  },
+  {
+    "type": "argument_value",
+    "named": true
+  },
+  {
+    "type": "arithmetic_expression",
+    "named": true
+  },
+  {
+    "type": "assignment_literal",
+    "named": true
+  },
+  {
+    "type": "bracketed_literal",
+    "named": true
+  },
+  {
+    "type": "command_name",
+    "named": true
+  },
+  {
+    "type": "command_option",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "comparison_op",
+    "named": true
+  },
+  {
+    "type": "fd_redirect_op",
+    "named": true
+  },
+  {
+    "type": "for_options",
+    "named": true
+  },
+  {
+    "type": "for_set_literal",
+    "named": true
+  },
+  {
+    "type": "for_variable",
+    "named": true
+  },
+  {
+    "type": "if_option",
+    "named": true
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "label",
+    "named": true
+  },
+  {
+    "type": "redirect_op",
+    "named": true
+  },
+  {
+    "type": "redirect_target",
+    "named": true
+  },
+  {
+    "type": "set_keyword",
+    "named": true
+  },
+  {
+    "type": "set_option",
+    "named": true
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "variable_name",
+    "named": true
+  },
+  {
+    "type": "variable_reference",
+    "named": true
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  }
+]

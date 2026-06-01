@@ -1,0 +1,1020 @@
+[
+  {
+    "type": "argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_comment",
+    "named": true,
+    "extra": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_comment_end",
+          "named": true
+        },
+        {
+          "type": "block_comment_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "code_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "condition_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_block",
+          "named": true
+        },
+        {
+          "type": "condition_block_content",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "line_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "condition_block_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_remainder",
+          "named": true
+        },
+        {
+          "type": "condition_block",
+          "named": true
+        },
+        {
+          "type": "inline_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "condition_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "const_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "const_start",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "default_option_mark",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arrow",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dialog_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_text",
+          "named": true
+        },
+        {
+          "type": "divert_or_thread",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "divert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "identifier_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "divert_chain",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "divert",
+          "named": true
+        },
+        {
+          "type": "divert_continue",
+          "named": true
+        },
+        {
+          "type": "divert_return",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "divert_continue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arrow",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "divert_or_thread",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "divert_chain",
+          "named": true
+        },
+        {
+          "type": "thread",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "divert_return",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "double_arrow",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_header",
+          "named": true
+        },
+        {
+          "type": "weave_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arguments",
+          "named": true
+        },
+        {
+          "type": "function_start",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gather_mark",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "gather_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dialog_text",
+          "named": true
+        },
+        {
+          "type": "gather_mark",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "inline_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_remainder",
+          "named": true
+        },
+        {
+          "type": "inline_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "knot",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "knot_header",
+          "named": true
+        },
+        {
+          "type": "stitch",
+          "named": true
+        },
+        {
+          "type": "weave_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "knot_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "knot_start",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "marked_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "list_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mark_end",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "mark_start",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "marked_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "mark_end",
+          "named": true
+        },
+        {
+          "type": "mark_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option_text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "option_mark",
+          "named": true
+        },
+        {
+          "type": "option_words",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option_words",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "default_option_mark",
+          "named": true
+        },
+        {
+          "type": "divert_or_thread",
+          "named": true
+        },
+        {
+          "type": "words",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "other",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "knot",
+          "named": true
+        },
+        {
+          "type": "weave_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "stitch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "stitch_header",
+          "named": true
+        },
+        {
+          "type": "weave_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "stitch_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "stitch_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "tag_remainder",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "text",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "glue",
+          "named": true
+        },
+        {
+          "type": "inline_block",
+          "named": true
+        },
+        {
+          "type": "other",
+          "named": true
+        },
+        {
+          "type": "vocabulary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "thread",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "back_arrow",
+          "named": true
+        },
+        {
+          "type": "identifier_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        },
+        {
+          "type": "var_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "weave_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "const_line",
+          "named": true
+        },
+        {
+          "type": "list_line",
+          "named": true
+        },
+        {
+          "type": "var_line",
+          "named": true
+        },
+        {
+          "type": "weave_body_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "weave_body_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "code_text",
+          "named": true
+        },
+        {
+          "type": "dialog_text",
+          "named": true
+        },
+        {
+          "type": "gather_text",
+          "named": true
+        },
+        {
+          "type": "line_end",
+          "named": true
+        },
+        {
+          "type": "line_start",
+          "named": true
+        },
+        {
+          "type": "option_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "word_other",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "words",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "glue",
+          "named": true
+        },
+        {
+          "type": "hide_end",
+          "named": true
+        },
+        {
+          "type": "hide_start",
+          "named": true
+        },
+        {
+          "type": "inline_block",
+          "named": true
+        },
+        {
+          "type": "vocabulary",
+          "named": true
+        },
+        {
+          "type": "word_other",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "arrow",
+    "named": true
+  },
+  {
+    "type": "assignment",
+    "named": true
+  },
+  {
+    "type": "back_arrow",
+    "named": true
+  },
+  {
+    "type": "block_comment_end",
+    "named": true
+  },
+  {
+    "type": "block_comment_start",
+    "named": true
+  },
+  {
+    "type": "block_remainder",
+    "named": true
+  },
+  {
+    "type": "boolean",
+    "named": true
+  },
+  {
+    "type": "const_start",
+    "named": true
+  },
+  {
+    "type": "dot",
+    "named": true
+  },
+  {
+    "type": "double_arrow",
+    "named": true
+  },
+  {
+    "type": "function_start",
+    "named": true
+  },
+  {
+    "type": "glue",
+    "named": true
+  },
+  {
+    "type": "hide_end",
+    "named": true
+  },
+  {
+    "type": "hide_start",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "knot_start",
+    "named": true
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "line_end",
+    "named": true
+  },
+  {
+    "type": "line_start",
+    "named": true
+  },
+  {
+    "type": "list_start",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "option_mark",
+    "named": true
+  },
+  {
+    "type": "ref",
+    "named": true
+  },
+  {
+    "type": "stitch_start",
+    "named": true
+  },
+  {
+    "type": "tag_remainder",
+    "named": true
+  },
+  {
+    "type": "var_start",
+    "named": true
+  },
+  {
+    "type": "vocabulary",
+    "named": true
+  }
+]

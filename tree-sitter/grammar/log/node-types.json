@@ -1,0 +1,433 @@
+[
+  {
+    "type": "constant",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "date",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "time",
+          "named": true
+        },
+        {
+          "type": "year_month_day",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "debug",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "error",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "info",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "log_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "log_level",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_level",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "error",
+          "named": true
+        },
+        {
+          "type": "info",
+          "named": true
+        },
+        {
+          "type": "trace",
+          "named": true
+        },
+        {
+          "type": "warn",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "time",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "trace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "warn",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "ALERT",
+    "named": false
+  },
+  {
+    "type": "CRITICAL",
+    "named": false
+  },
+  {
+    "type": "D/",
+    "named": false
+  },
+  {
+    "type": "DEBUG",
+    "named": false
+  },
+  {
+    "type": "Debug",
+    "named": false
+  },
+  {
+    "type": "E/",
+    "named": false
+  },
+  {
+    "type": "EMERGENCY",
+    "named": false
+  },
+  {
+    "type": "ERROR",
+    "named": false
+  },
+  {
+    "type": "Error",
+    "named": false
+  },
+  {
+    "type": "FAIL",
+    "named": false
+  },
+  {
+    "type": "FAILURE",
+    "named": false
+  },
+  {
+    "type": "FATAL",
+    "named": false
+  },
+  {
+    "type": "False",
+    "named": false
+  },
+  {
+    "type": "Fatal",
+    "named": false
+  },
+  {
+    "type": "I/",
+    "named": false
+  },
+  {
+    "type": "INFO",
+    "named": false
+  },
+  {
+    "type": "INFORMATION",
+    "named": false
+  },
+  {
+    "type": "Info",
+    "named": false
+  },
+  {
+    "type": "NOTICE",
+    "named": false
+  },
+  {
+    "type": "TRACE",
+    "named": false
+  },
+  {
+    "type": "Trace",
+    "named": false
+  },
+  {
+    "type": "True",
+    "named": false
+  },
+  {
+    "type": "V/",
+    "named": false
+  },
+  {
+    "type": "VERBOSE",
+    "named": false
+  },
+  {
+    "type": "Verbose",
+    "named": false
+  },
+  {
+    "type": "W/",
+    "named": false
+  },
+  {
+    "type": "WARN",
+    "named": false
+  },
+  {
+    "type": "WARNING",
+    "named": false
+  },
+  {
+    "type": "Warn",
+    "named": false
+  },
+  {
+    "type": "Warning",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "[d]",
+    "named": false
+  },
+  {
+    "type": "[dbg]",
+    "named": false
+  },
+  {
+    "type": "[dbug]",
+    "named": false
+  },
+  {
+    "type": "[de]",
+    "named": false
+  },
+  {
+    "type": "[e]",
+    "named": false
+  },
+  {
+    "type": "[er]",
+    "named": false
+  },
+  {
+    "type": "[eror]",
+    "named": false
+  },
+  {
+    "type": "[err]",
+    "named": false
+  },
+  {
+    "type": "[i]",
+    "named": false
+  },
+  {
+    "type": "[in]",
+    "named": false
+  },
+  {
+    "type": "[inf]",
+    "named": false
+  },
+  {
+    "type": "[info]",
+    "named": false
+  },
+  {
+    "type": "[trace]",
+    "named": false
+  },
+  {
+    "type": "[v]",
+    "named": false
+  },
+  {
+    "type": "[vb]",
+    "named": false
+  },
+  {
+    "type": "[verb]",
+    "named": false
+  },
+  {
+    "type": "[verbose]",
+    "named": false
+  },
+  {
+    "type": "[vrb]",
+    "named": false
+  },
+  {
+    "type": "[w]",
+    "named": false
+  },
+  {
+    "type": "[warn]",
+    "named": false
+  },
+  {
+    "type": "[wn]",
+    "named": false
+  },
+  {
+    "type": "[wrn]",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "debug:",
+    "named": false
+  },
+  {
+    "type": "error:",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "information:",
+    "named": false
+  },
+  {
+    "type": "null",
+    "named": false
+  },
+  {
+    "type": "trace:",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "warning:",
+    "named": false
+  },
+  {
+    "type": "word",
+    "named": true
+  },
+  {
+    "type": "year_month_day",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

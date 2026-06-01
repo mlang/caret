@@ -1,0 +1,218 @@
+[
+  {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "key_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "frequency_port",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "iobuf_port",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "key_value",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "key_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "locate_comp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "frequency_port",
+          "named": true
+        },
+        {
+          "type": "iobuf_port",
+          "named": true
+        },
+        {
+          "type": "locate_comp",
+          "named": true
+        },
+        {
+          "type": "sysconfig",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sysconfig",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "key_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "BLOCK",
+    "named": false
+  },
+  {
+    "type": "COMP",
+    "named": false
+  },
+  {
+    "type": "FREQUENCY",
+    "named": false
+  },
+  {
+    "type": "HZ",
+    "named": false
+  },
+  {
+    "type": "IOBUF",
+    "named": false
+  },
+  {
+    "type": "KHZ",
+    "named": false
+  },
+  {
+    "type": "LOCATE",
+    "named": false
+  },
+  {
+    "type": "MHZ",
+    "named": false
+  },
+  {
+    "type": "PORT",
+    "named": false
+  },
+  {
+    "type": "SITE",
+    "named": false
+  },
+  {
+    "type": "SYSCONFIG",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "number",
+    "named": true
+  }
+]

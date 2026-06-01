@@ -1,0 +1,3703 @@
+[
+  {
+    "type": "expression",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "binary_expression",
+        "named": true
+      },
+      {
+        "type": "concat_expression",
+        "named": true
+      },
+      {
+        "type": "primary_expression",
+        "named": true
+      },
+      {
+        "type": "range_expression",
+        "named": true
+      },
+      {
+        "type": "unary_expression",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "primary_expression",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "array_expression",
+        "named": true
+      },
+      {
+        "type": "as_pattern_expression",
+        "named": true
+      },
+      {
+        "type": "atom",
+        "named": true
+      },
+      {
+        "type": "braced_goal",
+        "named": true
+      },
+      {
+        "type": "dot_expression",
+        "named": true
+      },
+      {
+        "type": "function_call",
+        "named": true
+      },
+      {
+        "type": "integer",
+        "named": true
+      },
+      {
+        "type": "list_expression",
+        "named": true
+      },
+      {
+        "type": "real",
+        "named": true
+      },
+      {
+        "type": "string",
+        "named": true
+      },
+      {
+        "type": "subscript_expression",
+        "named": true
+      },
+      {
+        "type": "term_constructor",
+        "named": true
+      },
+      {
+        "type": "variable",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "action_rule",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "events": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "event_pattern",
+            "named": true
+          }
+        ]
+      },
+      "goal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "actor_definition",
+    "named": true,
+    "fields": {
+      "rule": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "action_rule",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "action_rule",
+          "named": true
+        },
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "nonbacktrackable_predicate_rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "argument",
+    "named": true,
+    "fields": {
+      "binding": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "list_comprehension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "as_pattern_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "binary_constraint_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "#/\\",
+            "named": false
+          },
+          {
+            "type": "#<=>",
+            "named": false
+          },
+          {
+            "type": "#=>",
+            "named": false
+          },
+          {
+            "type": "#\\/",
+            "named": false
+          },
+          {
+            "type": "#^",
+            "named": false
+          },
+          {
+            "type": "in",
+            "named": false
+          },
+          {
+            "type": "notin",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "binary_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "**",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "//",
+            "named": false
+          },
+          {
+            "type": "/<",
+            "named": false
+          },
+          {
+            "type": "/>",
+            "named": false
+          },
+          {
+            "type": "/\\",
+            "named": false
+          },
+          {
+            "type": "<<",
+            "named": false
+          },
+          {
+            "type": ">>",
+            "named": false
+          },
+          {
+            "type": "\\/",
+            "named": false
+          },
+          {
+            "type": "^",
+            "named": false
+          },
+          {
+            "type": "div",
+            "named": false
+          },
+          {
+            "type": "mod",
+            "named": false
+          },
+          {
+            "type": "rem",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "binary_relational_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "!==",
+            "named": false
+          },
+          {
+            "type": "#!=",
+            "named": false
+          },
+          {
+            "type": "#<",
+            "named": false
+          },
+          {
+            "type": "#<=",
+            "named": false
+          },
+          {
+            "type": "#=",
+            "named": false
+          },
+          {
+            "type": "#=<",
+            "named": false
+          },
+          {
+            "type": "#>",
+            "named": false
+          },
+          {
+            "type": "#>=",
+            "named": false
+          },
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "=..",
+            "named": false
+          },
+          {
+            "type": "=:=",
+            "named": false
+          },
+          {
+            "type": "=<",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": "@<",
+            "named": false
+          },
+          {
+            "type": "@<=",
+            "named": false
+          },
+          {
+            "type": "@=<",
+            "named": false
+          },
+          {
+            "type": "@>",
+            "named": false
+          },
+          {
+            "type": "@>=",
+            "named": false
+          },
+          {
+            "type": "is",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "braced_goal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "concat_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "++",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "conjunctive_goal",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "&&",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "index_declaration",
+          "named": true
+        },
+        {
+          "type": "table_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "disjunctive_goal",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "do_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "dot_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "arguments",
+            "named": true
+          },
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "event_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "foreach_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "iterator",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arguments",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "dot_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "function_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "function_fact",
+          "named": true
+        },
+        {
+          "type": "function_rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_fact",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_rule",
+    "named": true,
+    "fields": {
+      "goal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "then",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "else": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "elseif_condition": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "then",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "then": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "index_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "index_mode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "iterator",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "primary_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "list_comprehension",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "iterator",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "list_comprehension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "module_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nonbacktrackable_predicate_rule",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "goal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "once_goal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "primary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "predicate_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "predicate_fact",
+          "named": true
+        },
+        {
+          "type": "predicate_rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "predicate_fact",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "predicate_rule",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "goal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "atom",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "-->",
+            "named": false
+          },
+          {
+            "type": ":-",
+            "named": false
+          },
+          {
+            "type": "=>",
+            "named": false
+          },
+          {
+            "type": "?=>",
+            "named": false
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "eor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "program",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "actor_definition",
+          "named": true
+        },
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "import_declaration",
+          "named": true
+        },
+        {
+          "type": "module_declaration",
+          "named": true
+        },
+        {
+          "type": "predicate_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "range_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subscript_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "table_mode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "term_constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "throw",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "binary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "binary_relational_expression",
+          "named": true
+        },
+        {
+          "type": "conjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "disjunctive_goal",
+          "named": true
+        },
+        {
+          "type": "do_statement",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "foreach_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "once_goal",
+          "named": true
+        },
+        {
+          "type": "throw",
+          "named": true
+        },
+        {
+          "type": "unary_constraint_expression",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_constraint_expression",
+    "named": true,
+    "fields": {
+      "operand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "#~",
+            "named": false
+          },
+          {
+            "type": "\\+",
+            "named": false
+          },
+          {
+            "type": "not",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "unary_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "while_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "binary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "binary_relational_expression",
+            "named": true
+          },
+          {
+            "type": "conjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "disjunctive_goal",
+            "named": true
+          },
+          {
+            "type": "do_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "fail",
+            "named": false
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "foreach_statement",
+            "named": true
+          },
+          {
+            "type": "if_statement",
+            "named": true
+          },
+          {
+            "type": "once_goal",
+            "named": true
+          },
+          {
+            "type": "repeat",
+            "named": false
+          },
+          {
+            "type": "throw",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary_constraint_expression",
+            "named": true
+          },
+          {
+            "type": "while_statement",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_goal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "!==",
+    "named": false
+  },
+  {
+    "type": "#!=",
+    "named": false
+  },
+  {
+    "type": "#/\\",
+    "named": false
+  },
+  {
+    "type": "#<",
+    "named": false
+  },
+  {
+    "type": "#<=",
+    "named": false
+  },
+  {
+    "type": "#<=>",
+    "named": false
+  },
+  {
+    "type": "#=",
+    "named": false
+  },
+  {
+    "type": "#=<",
+    "named": false
+  },
+  {
+    "type": "#=>",
+    "named": false
+  },
+  {
+    "type": "#>",
+    "named": false
+  },
+  {
+    "type": "#>=",
+    "named": false
+  },
+  {
+    "type": "#\\/",
+    "named": false
+  },
+  {
+    "type": "#^",
+    "named": false
+  },
+  {
+    "type": "#~",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "**",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "++",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "-->",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "..",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "/<",
+    "named": false
+  },
+  {
+    "type": "/>",
+    "named": false
+  },
+  {
+    "type": "/\\",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ":-",
+    "named": false
+  },
+  {
+    "type": "::",
+    "named": false
+  },
+  {
+    "type": ":=",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "=..",
+    "named": false
+  },
+  {
+    "type": "=:=",
+    "named": false
+  },
+  {
+    "type": "=<",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": "=>",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": "?=>",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "@<",
+    "named": false
+  },
+  {
+    "type": "@<=",
+    "named": false
+  },
+  {
+    "type": "@=<",
+    "named": false
+  },
+  {
+    "type": "@>",
+    "named": false
+  },
+  {
+    "type": "@>=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "[]",
+    "named": false
+  },
+  {
+    "type": "\\+",
+    "named": false
+  },
+  {
+    "type": "\\/",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "atom",
+    "named": true
+  },
+  {
+    "type": "bound",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "div",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "dom",
+    "named": false
+  },
+  {
+    "type": "dom_any",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "elseif",
+    "named": false
+  },
+  {
+    "type": "end",
+    "named": false
+  },
+  {
+    "type": "eor",
+    "named": true
+  },
+  {
+    "type": "event",
+    "named": false
+  },
+  {
+    "type": "fail",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "foreach",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "index",
+    "named": false
+  },
+  {
+    "type": "index_mode",
+    "named": true
+  },
+  {
+    "type": "ins",
+    "named": false
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "is",
+    "named": false
+  },
+  {
+    "type": "mod",
+    "named": false
+  },
+  {
+    "type": "module",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "notin",
+    "named": false
+  },
+  {
+    "type": "once",
+    "named": false
+  },
+  {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "real",
+    "named": true
+  },
+  {
+    "type": "rem",
+    "named": false
+  },
+  {
+    "type": "repeat",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "table",
+    "named": false
+  },
+  {
+    "type": "table_mode",
+    "named": true
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "throw",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "variable",
+    "named": true
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "{}",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  }
+]

@@ -1,0 +1,1823 @@
+[
+  {
+    "type": "INT",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "align",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assign_op",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "assign_op",
+          "named": true
+        },
+        {
+          "type": "mustbe_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "at",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributes",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attributes_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributes_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attributes_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributes_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exclude_name_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "wildcard_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "INT",
+          "named": true
+        },
+        {
+          "type": "SYMBOLNAME",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "paren_script_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "extern_name_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filename",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "filename_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "wildcard_maybe_exclude",
+          "named": true
+        },
+        {
+          "type": "wildcard_maybe_reverse",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fill_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mustbe_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "floating_point_support",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "high_level_library",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "high_level_library_NAME_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "high_level_library_NAME_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ifile_p1",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "extern_name_list",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        },
+        {
+          "type": "floating_point_support",
+          "named": true
+        },
+        {
+          "type": "high_level_library",
+          "named": true
+        },
+        {
+          "type": "input_list",
+          "named": true
+        },
+        {
+          "type": "low_level_library",
+          "named": true
+        },
+        {
+          "type": "memory",
+          "named": true
+        },
+        {
+          "type": "nocrossref_list",
+          "named": true
+        },
+        {
+          "type": "phdrs",
+          "named": true
+        },
+        {
+          "type": "sections",
+          "named": true
+        },
+        {
+          "type": "startup",
+          "named": true
+        },
+        {
+          "type": "statement_anywhere",
+          "named": true
+        },
+        {
+          "type": "version",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "input_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "LNAME",
+          "named": true
+        },
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "input_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "input_section_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "input_section_spec_no_keep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "input_section_spec_no_keep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "filename_spec",
+          "named": true
+        },
+        {
+          "type": "sect_flags",
+          "named": true
+        },
+        {
+          "type": "section_name_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "length",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "length_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mustbe_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "low_level_library",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "low_level_library_NAME_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "low_level_library_NAME_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memory",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "memory_spec_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memory_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "attributes",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        },
+        {
+          "type": "length_spec",
+          "named": true
+        },
+        {
+          "type": "origin_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memory_spec_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "memory_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memspec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memspec_at",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mustbe_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nocrossref_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "opt_exp_with_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "atype",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "opt_exp_without_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "origin_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mustbe_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "overlay_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "fill_exp",
+          "named": true
+        },
+        {
+          "type": "phdr_opt",
+          "named": true
+        },
+        {
+          "type": "statement_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "paren_script_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "phdr_qualifiers",
+          "named": true
+        },
+        {
+          "type": "phdr_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "phdr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr_opt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "phdr_opt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr_qualifiers",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "phdr_val",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdr_val",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "phdrs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "phdr_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "script_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ifile_p1",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sec_or_group_p1",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "section",
+          "named": true
+        },
+        {
+          "type": "statement_anywhere",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sect_constraint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sect_flag_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "wildcard_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sect_flags",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sect_flag_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "align",
+          "named": true
+        },
+        {
+          "type": "at",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        },
+        {
+          "type": "fill_exp",
+          "named": true
+        },
+        {
+          "type": "memspec",
+          "named": true
+        },
+        {
+          "type": "memspec_at",
+          "named": true
+        },
+        {
+          "type": "opt_exp_with_type",
+          "named": true
+        },
+        {
+          "type": "opt_exp_without_type",
+          "named": true
+        },
+        {
+          "type": "overlay_section",
+          "named": true
+        },
+        {
+          "type": "phdr_opt",
+          "named": true
+        },
+        {
+          "type": "sec_or_group_p1",
+          "named": true
+        },
+        {
+          "type": "sect_constraint",
+          "named": true
+        },
+        {
+          "type": "statement_list",
+          "named": true
+        },
+        {
+          "type": "subalign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section_name_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "section_name_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section_name_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "wildcard_maybe_exclude",
+          "named": true
+        },
+        {
+          "type": "wildcard_maybe_reverse",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sections",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "sec_or_group_p1",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "separator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "startup",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        },
+        {
+          "type": "fill_exp",
+          "named": true
+        },
+        {
+          "type": "input_section_spec",
+          "named": true
+        },
+        {
+          "type": "length",
+          "named": true
+        },
+        {
+          "type": "mustbe_exp",
+          "named": true
+        },
+        {
+          "type": "separator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement_anywhere",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "separator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subalign",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "verdep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "VERS_TAG",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vers_defns",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "NAME",
+          "named": true
+        },
+        {
+          "type": "VERS_IDENTIFIER",
+          "named": true
+        },
+        {
+          "type": "vers_defns",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vers_node",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "VERS_TAG",
+          "named": true
+        },
+        {
+          "type": "verdep",
+          "named": true
+        },
+        {
+          "type": "vers_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vers_nodes",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "vers_node",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vers_tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "vers_defns",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "version",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "vers_nodes",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "wildcard_maybe_exclude",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exclude_name_list",
+          "named": true
+        },
+        {
+          "type": "wildcard_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "wildcard_maybe_reverse",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "wildcard_maybe_exclude",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "&=",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "*=",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "+=",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "-=",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/=",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<<=",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": ">>=",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "ABSOLUTE",
+    "named": false
+  },
+  {
+    "type": "ADDR",
+    "named": false
+  },
+  {
+    "type": "AFTER",
+    "named": false
+  },
+  {
+    "type": "ALIGN",
+    "named": false
+  },
+  {
+    "type": "ALIGNOF",
+    "named": false
+  },
+  {
+    "type": "ALIGN_WITH_INPUT",
+    "named": false
+  },
+  {
+    "type": "ASCIZ",
+    "named": false
+  },
+  {
+    "type": "ASSERT",
+    "named": false
+  },
+  {
+    "type": "AS_NEEDED",
+    "named": false
+  },
+  {
+    "type": "AT",
+    "named": false
+  },
+  {
+    "type": "BEFORE",
+    "named": false
+  },
+  {
+    "type": "BIND",
+    "named": false
+  },
+  {
+    "type": "BLOCK",
+    "named": false
+  },
+  {
+    "type": "BYTE",
+    "named": false
+  },
+  {
+    "type": "CONSTANT",
+    "named": false
+  },
+  {
+    "type": "CONSTRUCTORS",
+    "named": false
+  },
+  {
+    "type": "COPY",
+    "named": false
+  },
+  {
+    "type": "CREATE_OBJECT_SYMBOLS",
+    "named": false
+  },
+  {
+    "type": "DATA_SEGMENT_ALIGN",
+    "named": false
+  },
+  {
+    "type": "DATA_SEGMENT_END",
+    "named": false
+  },
+  {
+    "type": "DATA_SEGMENT_RELRO_END",
+    "named": false
+  },
+  {
+    "type": "DEFINED",
+    "named": false
+  },
+  {
+    "type": "DSECT",
+    "named": false
+  },
+  {
+    "type": "ENTRY",
+    "named": false
+  },
+  {
+    "type": "EXCLUDE_FILE",
+    "named": false
+  },
+  {
+    "type": "EXTERN",
+    "named": false
+  },
+  {
+    "type": "FILL",
+    "named": false
+  },
+  {
+    "type": "FLOAT",
+    "named": false
+  },
+  {
+    "type": "FORCE_COMMON_ALLOCATION",
+    "named": false
+  },
+  {
+    "type": "FORCE_GROUP_ALLOCATION",
+    "named": false
+  },
+  {
+    "type": "GROUP",
+    "named": false
+  },
+  {
+    "type": "HIDDEN",
+    "named": false
+  },
+  {
+    "type": "HLL",
+    "named": false
+  },
+  {
+    "type": "INCLUDE",
+    "named": false
+  },
+  {
+    "type": "INFO",
+    "named": false
+  },
+  {
+    "type": "INHIBIT_COMMON_ALLOCATION",
+    "named": false
+  },
+  {
+    "type": "INPUT",
+    "named": false
+  },
+  {
+    "type": "INPUT_SECTION_FLAGS",
+    "named": false
+  },
+  {
+    "type": "INSERT",
+    "named": false
+  },
+  {
+    "type": "KEEP",
+    "named": false
+  },
+  {
+    "type": "LD_FEATURE",
+    "named": false
+  },
+  {
+    "type": "LENGTH",
+    "named": false
+  },
+  {
+    "type": "LINKER_VERSION",
+    "named": false
+  },
+  {
+    "type": "LNAME",
+    "named": true
+  },
+  {
+    "type": "LOADADDR",
+    "named": false
+  },
+  {
+    "type": "LOG2CEIL",
+    "named": false
+  },
+  {
+    "type": "LONG",
+    "named": false
+  },
+  {
+    "type": "MAP",
+    "named": false
+  },
+  {
+    "type": "MAX",
+    "named": false
+  },
+  {
+    "type": "MEMORY",
+    "named": false
+  },
+  {
+    "type": "MIN",
+    "named": false
+  },
+  {
+    "type": "NAME",
+    "named": true
+  },
+  {
+    "type": "NEXT",
+    "named": false
+  },
+  {
+    "type": "NOCROSSREFS",
+    "named": false
+  },
+  {
+    "type": "NOCROSSREFS_TO",
+    "named": false
+  },
+  {
+    "type": "NOFLOAT",
+    "named": false
+  },
+  {
+    "type": "NOLOAD",
+    "named": false
+  },
+  {
+    "type": "ONLY_IF_RO",
+    "named": false
+  },
+  {
+    "type": "ONLY_IF_RW",
+    "named": false
+  },
+  {
+    "type": "ORIGIN",
+    "named": false
+  },
+  {
+    "type": "OUTPUT",
+    "named": false
+  },
+  {
+    "type": "OUTPUT_ARCH",
+    "named": false
+  },
+  {
+    "type": "OUTPUT_FORMAT",
+    "named": false
+  },
+  {
+    "type": "OVERLAY",
+    "named": false
+  },
+  {
+    "type": "PHDRS",
+    "named": false
+  },
+  {
+    "type": "PROVIDE",
+    "named": false
+  },
+  {
+    "type": "PROVIDE_HIDDEN",
+    "named": false
+  },
+  {
+    "type": "QUAD",
+    "named": false
+  },
+  {
+    "type": "READONLY",
+    "named": false
+  },
+  {
+    "type": "REGION_ALIAS",
+    "named": false
+  },
+  {
+    "type": "REVERSE",
+    "named": false
+  },
+  {
+    "type": "SEARCH_DIR",
+    "named": false
+  },
+  {
+    "type": "SECTIONS",
+    "named": false
+  },
+  {
+    "type": "SEGMENT_START",
+    "named": false
+  },
+  {
+    "type": "SHORT",
+    "named": false
+  },
+  {
+    "type": "SIZEOF",
+    "named": false
+  },
+  {
+    "type": "SIZEOF_HEADERS",
+    "named": false
+  },
+  {
+    "type": "SORT",
+    "named": false
+  },
+  {
+    "type": "SORT_BY_ALIGNMENT",
+    "named": false
+  },
+  {
+    "type": "SORT_BY_INIT_PRIORITY",
+    "named": false
+  },
+  {
+    "type": "SORT_BY_NAME",
+    "named": false
+  },
+  {
+    "type": "SORT_NONE",
+    "named": false
+  },
+  {
+    "type": "SPECIAL",
+    "named": false
+  },
+  {
+    "type": "SQUAD",
+    "named": false
+  },
+  {
+    "type": "STARTUP",
+    "named": false
+  },
+  {
+    "type": "SUBALIGN",
+    "named": false
+  },
+  {
+    "type": "SYMBOLNAME",
+    "named": true
+  },
+  {
+    "type": "SYSLIB",
+    "named": false
+  },
+  {
+    "type": "TARGET",
+    "named": false
+  },
+  {
+    "type": "TYPE",
+    "named": false
+  },
+  {
+    "type": "VERSION",
+    "named": false
+  },
+  {
+    "type": "VERS_IDENTIFIER",
+    "named": true
+  },
+  {
+    "type": "VERS_TAG",
+    "named": true
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "^=",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "extern",
+    "named": false
+  },
+  {
+    "type": "global",
+    "named": false
+  },
+  {
+    "type": "l",
+    "named": false
+  },
+  {
+    "type": "len",
+    "named": false
+  },
+  {
+    "type": "local",
+    "named": false
+  },
+  {
+    "type": "o",
+    "named": false
+  },
+  {
+    "type": "org",
+    "named": false
+  },
+  {
+    "type": "wildcard_name",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "|=",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  }
+]

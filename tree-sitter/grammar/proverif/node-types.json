@@ -1,0 +1,1938 @@
+[
+  {
+    "type": "binding",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gformat",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clauses",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "clause",
+          "named": true
+        },
+        {
+          "type": "clauses",
+          "named": true
+        },
+        {
+          "type": "failtypedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "clauses",
+          "named": true
+        },
+        {
+          "type": "decl_channel",
+          "named": true
+        },
+        {
+          "type": "decl_const",
+          "named": true
+        },
+        {
+          "type": "decl_cryptoverif",
+          "named": true
+        },
+        {
+          "type": "decl_event",
+          "named": true
+        },
+        {
+          "type": "decl_free",
+          "named": true
+        },
+        {
+          "type": "decl_pred",
+          "named": true
+        },
+        {
+          "type": "decl_process_macro",
+          "named": true
+        },
+        {
+          "type": "decl_query",
+          "named": true
+        },
+        {
+          "type": "decl_table",
+          "named": true
+        },
+        {
+          "type": "eqlist",
+          "named": true
+        },
+        {
+          "type": "failtypedecl",
+          "named": true
+        },
+        {
+          "type": "function_def",
+          "named": true
+        },
+        {
+          "type": "function_macro_def",
+          "named": true
+        },
+        {
+          "type": "gterm",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "lemma",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "nidecl",
+          "named": true
+        },
+        {
+          "type": "nounifdecl",
+          "named": true
+        },
+        {
+          "type": "nounifoption",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "type_def",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_channel",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_const",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_cryptoverif",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "proof",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_event",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_free",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_pred",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_process_macro",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_query",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "query",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_table",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "def",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "eqlist",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "equality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "failtypedecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "mayfailreduc",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_macro_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "pterm",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gformat",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "binding",
+          "named": true
+        },
+        {
+          "type": "gformat",
+          "named": true
+        },
+        {
+          "type": "gformat_function_call",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gformat_function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "gformat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gterm",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "binding",
+          "named": true
+        },
+        {
+          "type": "gterm",
+          "named": true
+        },
+        {
+          "type": "gterm_function_call",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gterm_function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "gterm",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "infix",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "lemma",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gterm",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "lemma",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mayfailequality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "mayfailequality",
+          "named": true
+        },
+        {
+          "type": "mayfailterm",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mayfailreduc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "failtypedecl",
+          "named": true
+        },
+        {
+          "type": "mayfailequality",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mayfailterm",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nidecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nounifdecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gformat",
+          "named": true
+        },
+        {
+          "type": "gformat_function_call",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        },
+        {
+          "type": "nounifdecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nounifoption",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "process_final_item",
+          "named": true
+        },
+        {
+          "type": "process_foreach",
+          "named": true
+        },
+        {
+          "type": "process_get",
+          "named": true
+        },
+        {
+          "type": "process_item",
+          "named": true
+        },
+        {
+          "type": "process_let",
+          "named": true
+        },
+        {
+          "type": "process_replication",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_final_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "process_function_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_foreach",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pterm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_get",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_input",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "process_input",
+          "named": true
+        },
+        {
+          "type": "process_new",
+          "named": true
+        },
+        {
+          "type": "process_output",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_let",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_new",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_output",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "pterm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "process_replication",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "process",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "proof",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "pterm",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "pterm",
+          "named": true
+        },
+        {
+          "type": "pterm_function_call",
+          "named": true
+        },
+        {
+          "type": "typedecl",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pterm_function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pterm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gterm",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "decl",
+          "named": true
+        },
+        {
+          "type": "process",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "term",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "infix",
+          "named": true
+        },
+        {
+          "type": "nat",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        },
+        {
+          "type": "term_function_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "term_function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "typeid",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeid",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<-",
+    "named": false
+  },
+  {
+    "type": "<->",
+    "named": false
+  },
+  {
+    "type": "<-R",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "<=>",
+    "named": false
+  },
+  {
+    "type": "<>",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==>",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "among",
+    "named": false
+  },
+  {
+    "type": "axiom",
+    "named": false
+  },
+  {
+    "type": "bounded",
+    "named": false
+  },
+  {
+    "type": "channel",
+    "named": false
+  },
+  {
+    "type": "choice",
+    "named": false
+  },
+  {
+    "type": "clauses",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "conclusion",
+    "named": false
+  },
+  {
+    "type": "const",
+    "named": false
+  },
+  {
+    "type": "data",
+    "named": false
+  },
+  {
+    "type": "def",
+    "named": false
+  },
+  {
+    "type": "discardSat",
+    "named": false
+  },
+  {
+    "type": "discardVerif",
+    "named": false
+  },
+  {
+    "type": "elimtrue",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "equation",
+    "named": false
+  },
+  {
+    "type": "equivalence",
+    "named": false
+  },
+  {
+    "type": "event",
+    "named": false
+  },
+  {
+    "type": "expand",
+    "named": false
+  },
+  {
+    "type": "fail",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "fixed",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "forall",
+    "named": false
+  },
+  {
+    "type": "foreach",
+    "named": false
+  },
+  {
+    "type": "free",
+    "named": false
+  },
+  {
+    "type": "fullSat",
+    "named": false
+  },
+  {
+    "type": "fullVerif",
+    "named": false
+  },
+  {
+    "type": "fun",
+    "named": false
+  },
+  {
+    "type": "get",
+    "named": false
+  },
+  {
+    "type": "hypothesis",
+    "named": false
+  },
+  {
+    "type": "ident",
+    "named": true
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "ignoreAFewTimes",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "induction",
+    "named": false
+  },
+  {
+    "type": "inductionOn",
+    "named": false
+  },
+  {
+    "type": "inj-event",
+    "named": false
+  },
+  {
+    "type": "insert",
+    "named": false
+  },
+  {
+    "type": "instantiateSat",
+    "named": false
+  },
+  {
+    "type": "instantiateVerif",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": true
+  },
+  {
+    "type": "large",
+    "named": false
+  },
+  {
+    "type": "lemma",
+    "named": false
+  },
+  {
+    "type": "let",
+    "named": false
+  },
+  {
+    "type": "letfun",
+    "named": false
+  },
+  {
+    "type": "letproba",
+    "named": false
+  },
+  {
+    "type": "maxSubset",
+    "named": false
+  },
+  {
+    "type": "memberOptim",
+    "named": false
+  },
+  {
+    "type": "nat",
+    "named": true
+  },
+  {
+    "type": "new",
+    "named": false
+  },
+  {
+    "type": "noInduction",
+    "named": false
+  },
+  {
+    "type": "nonSat",
+    "named": false
+  },
+  {
+    "type": "nonVerif",
+    "named": false
+  },
+  {
+    "type": "noninterf",
+    "named": false
+  },
+  {
+    "type": "noselect",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "nounif",
+    "named": false
+  },
+  {
+    "type": "otherwise",
+    "named": false
+  },
+  {
+    "type": "out",
+    "named": false
+  },
+  {
+    "type": "param",
+    "named": false
+  },
+  {
+    "type": "phase",
+    "named": false
+  },
+  {
+    "type": "precise",
+    "named": false
+  },
+  {
+    "type": "pred",
+    "named": false
+  },
+  {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "proba",
+    "named": false
+  },
+  {
+    "type": "process",
+    "named": false
+  },
+  {
+    "type": "proof",
+    "named": false
+  },
+  {
+    "type": "proveAll",
+    "named": false
+  },
+  {
+    "type": "public_vars",
+    "named": false
+  },
+  {
+    "type": "putbegin",
+    "named": false
+  },
+  {
+    "type": "pv_reachability",
+    "named": false
+  },
+  {
+    "type": "pv_real_or_random",
+    "named": false
+  },
+  {
+    "type": "query",
+    "named": false
+  },
+  {
+    "type": "reachability",
+    "named": false
+  },
+  {
+    "type": "real_or_random",
+    "named": false
+  },
+  {
+    "type": "reduc",
+    "named": false
+  },
+  {
+    "type": "restriction",
+    "named": false
+  },
+  {
+    "type": "secret",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "suchthat",
+    "named": false
+  },
+  {
+    "type": "sync",
+    "named": false
+  },
+  {
+    "type": "table",
+    "named": false
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "typeConverter",
+    "named": false
+  },
+  {
+    "type": "weaksecret",
+    "named": false
+  },
+  {
+    "type": "yield",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

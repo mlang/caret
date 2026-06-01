@@ -1,0 +1,170 @@
+[
+  {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hex_argument",
+          "named": true
+        },
+        {
+          "type": "indexes",
+          "named": true
+        },
+        {
+          "type": "ipv4_argument",
+          "named": true
+        },
+        {
+          "type": "numeric_argument",
+          "named": true
+        },
+        {
+          "type": "parameter",
+          "named": true
+        },
+        {
+          "type": "string_argument",
+          "named": true
+        },
+        {
+          "type": "string_literal_argument",
+          "named": true
+        },
+        {
+          "type": "template",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "port_comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hex_argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "template",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "indexes",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "index",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "program",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "change_port",
+          "named": true
+        },
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "0x",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "change_port",
+    "named": true
+  },
+  {
+    "type": "index",
+    "named": true
+  },
+  {
+    "type": "ipv4_argument",
+    "named": true
+  },
+  {
+    "type": "numeric_argument",
+    "named": true
+  },
+  {
+    "type": "parameter",
+    "named": true
+  },
+  {
+    "type": "port_comment",
+    "named": true
+  },
+  {
+    "type": "string_argument",
+    "named": true
+  },
+  {
+    "type": "string_literal_argument",
+    "named": true
+  },
+  {
+    "type": "template",
+    "named": true
+  }
+]

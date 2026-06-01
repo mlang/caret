@@ -1,0 +1,10 @@
+CMakeCache.txt
+CMakeFiles/
+CTestTestfile.cmake
+DartConfiguration.tcl
+Makefile
+Testing/
+caret
+cmake_install.cmake
+install_manifest.txt
+libtext-buffer.a

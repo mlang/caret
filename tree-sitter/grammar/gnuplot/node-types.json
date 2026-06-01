@@ -1,0 +1,1547 @@
+[
+  {
+    "type": "array_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "builtin_function",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "do_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_definition",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "fit_command",
+          "named": true
+        },
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "load_command",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "pause_command",
+          "named": true
+        },
+        {
+          "type": "plot_command",
+          "named": true
+        },
+        {
+          "type": "print_command",
+          "named": true
+        },
+        {
+          "type": "reset_command",
+          "named": true
+        },
+        {
+          "type": "set_command",
+          "named": true
+        },
+        {
+          "type": "splot_command",
+          "named": true
+        },
+        {
+          "type": "unset_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fit_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_function",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "iterator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "load_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "do_clause",
+          "named": true
+        },
+        {
+          "type": "iterator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pause_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "plot_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "plot_item_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "plot_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "plot_option",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "plot_item_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "plot_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "plot_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "title_clause",
+          "named": true
+        },
+        {
+          "type": "using_clause",
+          "named": true
+        },
+        {
+          "type": "with_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "print_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "range",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "set_argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "set_arguments",
+          "named": true
+        },
+        {
+          "type": "set_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_definition",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "fit_command",
+          "named": true
+        },
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "load_command",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "pause_command",
+          "named": true
+        },
+        {
+          "type": "plot_command",
+          "named": true
+        },
+        {
+          "type": "print_command",
+          "named": true
+        },
+        {
+          "type": "reset_command",
+          "named": true
+        },
+        {
+          "type": "set_command",
+          "named": true
+        },
+        {
+          "type": "splot_command",
+          "named": true
+        },
+        {
+          "type": "unset_command",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "splot_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "plot_item_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "title_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unset_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "set_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "**",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "abs",
+    "named": false
+  },
+  {
+    "type": "acos",
+    "named": false
+  },
+  {
+    "type": "angles",
+    "named": false
+  },
+  {
+    "type": "array",
+    "named": false
+  },
+  {
+    "type": "arrow",
+    "named": false
+  },
+  {
+    "type": "asin",
+    "named": false
+  },
+  {
+    "type": "atan",
+    "named": false
+  },
+  {
+    "type": "autoscale",
+    "named": false
+  },
+  {
+    "type": "bars",
+    "named": false
+  },
+  {
+    "type": "bmargin",
+    "named": false
+  },
+  {
+    "type": "border",
+    "named": false
+  },
+  {
+    "type": "boxdepth",
+    "named": false
+  },
+  {
+    "type": "boxwidth",
+    "named": false
+  },
+  {
+    "type": "cbdata",
+    "named": false
+  },
+  {
+    "type": "cbdtics",
+    "named": false
+  },
+  {
+    "type": "cblabel",
+    "named": false
+  },
+  {
+    "type": "cbmtics",
+    "named": false
+  },
+  {
+    "type": "cbrange",
+    "named": false
+  },
+  {
+    "type": "cbtics",
+    "named": false
+  },
+  {
+    "type": "chi_shapes",
+    "named": false
+  },
+  {
+    "type": "clabel",
+    "named": false
+  },
+  {
+    "type": "clip",
+    "named": false
+  },
+  {
+    "type": "cntrlabel",
+    "named": false
+  },
+  {
+    "type": "cntrparam",
+    "named": false
+  },
+  {
+    "type": "color",
+    "named": false
+  },
+  {
+    "type": "colorbox",
+    "named": false
+  },
+  {
+    "type": "colormap",
+    "named": false
+  },
+  {
+    "type": "colorsequence",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "contour",
+    "named": false
+  },
+  {
+    "type": "contourfill",
+    "named": false
+  },
+  {
+    "type": "cornerpoles",
+    "named": false
+  },
+  {
+    "type": "cos",
+    "named": false
+  },
+  {
+    "type": "dashtype",
+    "named": false
+  },
+  {
+    "type": "datafile",
+    "named": false
+  },
+  {
+    "type": "date_specifiers",
+    "named": false
+  },
+  {
+    "type": "decimalsign",
+    "named": false
+  },
+  {
+    "type": "dgrid3d",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "dummy",
+    "named": false
+  },
+  {
+    "type": "encoding",
+    "named": false
+  },
+  {
+    "type": "errorbars",
+    "named": false
+  },
+  {
+    "type": "exp",
+    "named": false
+  },
+  {
+    "type": "fit",
+    "named": false
+  },
+  {
+    "type": "fontpath",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "format",
+    "named": false
+  },
+  {
+    "type": "grid",
+    "named": false
+  },
+  {
+    "type": "hidden3d",
+    "named": false
+  },
+  {
+    "type": "history",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "isosamples",
+    "named": false
+  },
+  {
+    "type": "isosurface",
+    "named": false
+  },
+  {
+    "type": "isotropic",
+    "named": false
+  },
+  {
+    "type": "jitter",
+    "named": false
+  },
+  {
+    "type": "key",
+    "named": false
+  },
+  {
+    "type": "label",
+    "named": false
+  },
+  {
+    "type": "linetype",
+    "named": false
+  },
+  {
+    "type": "link",
+    "named": false
+  },
+  {
+    "type": "lmargin",
+    "named": false
+  },
+  {
+    "type": "load",
+    "named": false
+  },
+  {
+    "type": "loadpath",
+    "named": false
+  },
+  {
+    "type": "locale",
+    "named": false
+  },
+  {
+    "type": "log",
+    "named": false
+  },
+  {
+    "type": "log10",
+    "named": false
+  },
+  {
+    "type": "logscale",
+    "named": false
+  },
+  {
+    "type": "macros",
+    "named": false
+  },
+  {
+    "type": "mapping",
+    "named": false
+  },
+  {
+    "type": "margin",
+    "named": false
+  },
+  {
+    "type": "margins",
+    "named": false
+  },
+  {
+    "type": "micro",
+    "named": false
+  },
+  {
+    "type": "minussign",
+    "named": false
+  },
+  {
+    "type": "missing",
+    "named": false
+  },
+  {
+    "type": "monochrome",
+    "named": false
+  },
+  {
+    "type": "mouse",
+    "named": false
+  },
+  {
+    "type": "mttics",
+    "named": false
+  },
+  {
+    "type": "multiplot",
+    "named": false
+  },
+  {
+    "type": "mx2tics",
+    "named": false
+  },
+  {
+    "type": "mxtics",
+    "named": false
+  },
+  {
+    "type": "my2tics",
+    "named": false
+  },
+  {
+    "type": "mytics",
+    "named": false
+  },
+  {
+    "type": "mztics",
+    "named": false
+  },
+  {
+    "type": "nonlinear",
+    "named": false
+  },
+  {
+    "type": "notitle",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "object",
+    "named": false
+  },
+  {
+    "type": "offsets",
+    "named": false
+  },
+  {
+    "type": "origin",
+    "named": false
+  },
+  {
+    "type": "output",
+    "named": false
+  },
+  {
+    "type": "overflow",
+    "named": false
+  },
+  {
+    "type": "palette",
+    "named": false
+  },
+  {
+    "type": "parametric",
+    "named": false
+  },
+  {
+    "type": "pause",
+    "named": false
+  },
+  {
+    "type": "paxis",
+    "named": false
+  },
+  {
+    "type": "pixmap",
+    "named": false
+  },
+  {
+    "type": "plot",
+    "named": false
+  },
+  {
+    "type": "pm3d",
+    "named": false
+  },
+  {
+    "type": "pointintervalbox",
+    "named": false
+  },
+  {
+    "type": "pointsize",
+    "named": false
+  },
+  {
+    "type": "polar",
+    "named": false
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "psdir",
+    "named": false
+  },
+  {
+    "type": "range",
+    "named": false
+  },
+  {
+    "type": "raxis",
+    "named": false
+  },
+  {
+    "type": "reset_command",
+    "named": true
+  },
+  {
+    "type": "rgbmax",
+    "named": false
+  },
+  {
+    "type": "rlabel",
+    "named": false
+  },
+  {
+    "type": "rmargin",
+    "named": false
+  },
+  {
+    "type": "rrange",
+    "named": false
+  },
+  {
+    "type": "rtics",
+    "named": false
+  },
+  {
+    "type": "samples",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
+    "type": "sin",
+    "named": false
+  },
+  {
+    "type": "size",
+    "named": false
+  },
+  {
+    "type": "spiderplot",
+    "named": false
+  },
+  {
+    "type": "splot",
+    "named": false
+  },
+  {
+    "type": "sprintf",
+    "named": false
+  },
+  {
+    "type": "sqrt",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "style",
+    "named": false
+  },
+  {
+    "type": "surface",
+    "named": false
+  },
+  {
+    "type": "table",
+    "named": false
+  },
+  {
+    "type": "tan",
+    "named": false
+  },
+  {
+    "type": "term",
+    "named": false
+  },
+  {
+    "type": "terminal",
+    "named": false
+  },
+  {
+    "type": "termoption",
+    "named": false
+  },
+  {
+    "type": "theta",
+    "named": false
+  },
+  {
+    "type": "tics",
+    "named": false
+  },
+  {
+    "type": "ticscale",
+    "named": false
+  },
+  {
+    "type": "ticslevel",
+    "named": false
+  },
+  {
+    "type": "time_specifiers",
+    "named": false
+  },
+  {
+    "type": "timefmt",
+    "named": false
+  },
+  {
+    "type": "timestamp",
+    "named": false
+  },
+  {
+    "type": "title",
+    "named": false
+  },
+  {
+    "type": "tmargin",
+    "named": false
+  },
+  {
+    "type": "trange",
+    "named": false
+  },
+  {
+    "type": "ttics",
+    "named": false
+  },
+  {
+    "type": "unset",
+    "named": false
+  },
+  {
+    "type": "urange",
+    "named": false
+  },
+  {
+    "type": "using",
+    "named": false
+  },
+  {
+    "type": "vgrid",
+    "named": false
+  },
+  {
+    "type": "via",
+    "named": false
+  },
+  {
+    "type": "view",
+    "named": false
+  },
+  {
+    "type": "vrange",
+    "named": false
+  },
+  {
+    "type": "vxrange",
+    "named": false
+  },
+  {
+    "type": "vyrange",
+    "named": false
+  },
+  {
+    "type": "vzrange",
+    "named": false
+  },
+  {
+    "type": "walls",
+    "named": false
+  },
+  {
+    "type": "warnings",
+    "named": false
+  },
+  {
+    "type": "with",
+    "named": false
+  },
+  {
+    "type": "x2data",
+    "named": false
+  },
+  {
+    "type": "x2dtics",
+    "named": false
+  },
+  {
+    "type": "x2label",
+    "named": false
+  },
+  {
+    "type": "x2mtics",
+    "named": false
+  },
+  {
+    "type": "x2range",
+    "named": false
+  },
+  {
+    "type": "x2tics",
+    "named": false
+  },
+  {
+    "type": "x2zeroaxis",
+    "named": false
+  },
+  {
+    "type": "xdata",
+    "named": false
+  },
+  {
+    "type": "xdtics",
+    "named": false
+  },
+  {
+    "type": "xlabel",
+    "named": false
+  },
+  {
+    "type": "xmtics",
+    "named": false
+  },
+  {
+    "type": "xrange",
+    "named": false
+  },
+  {
+    "type": "xtics",
+    "named": false
+  },
+  {
+    "type": "xyplane",
+    "named": false
+  },
+  {
+    "type": "xzeroaxis",
+    "named": false
+  },
+  {
+    "type": "y2data",
+    "named": false
+  },
+  {
+    "type": "y2dtics",
+    "named": false
+  },
+  {
+    "type": "y2label",
+    "named": false
+  },
+  {
+    "type": "y2mtics",
+    "named": false
+  },
+  {
+    "type": "y2range",
+    "named": false
+  },
+  {
+    "type": "y2tics",
+    "named": false
+  },
+  {
+    "type": "y2zeroaxis",
+    "named": false
+  },
+  {
+    "type": "ydata",
+    "named": false
+  },
+  {
+    "type": "ydtics",
+    "named": false
+  },
+  {
+    "type": "ylabel",
+    "named": false
+  },
+  {
+    "type": "ymtics",
+    "named": false
+  },
+  {
+    "type": "yrange",
+    "named": false
+  },
+  {
+    "type": "ytics",
+    "named": false
+  },
+  {
+    "type": "yzeroaxis",
+    "named": false
+  },
+  {
+    "type": "zdata",
+    "named": false
+  },
+  {
+    "type": "zdtics",
+    "named": false
+  },
+  {
+    "type": "zero",
+    "named": false
+  },
+  {
+    "type": "zeroaxis",
+    "named": false
+  },
+  {
+    "type": "zlabel",
+    "named": false
+  },
+  {
+    "type": "zmtics",
+    "named": false
+  },
+  {
+    "type": "zrange",
+    "named": false
+  },
+  {
+    "type": "ztics",
+    "named": false
+  },
+  {
+    "type": "zzeroaxis",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

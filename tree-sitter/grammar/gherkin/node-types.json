@@ -1,0 +1,469 @@
+[
+  {
+    "type": "additional_step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additional_step_keyword",
+          "named": true
+        },
+        {
+          "type": "step_arguments",
+          "named": true
+        },
+        {
+          "type": "step_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "additional_step_keyword",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "and_keyword",
+          "named": true
+        },
+        {
+          "type": "asterisk_keyword",
+          "named": true
+        },
+        {
+          "type": "but_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "background",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "background_keyword",
+          "named": true
+        },
+        {
+          "type": "given_steps",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "data_table",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "description",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "doc_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "doc_string_content",
+          "named": true
+        },
+        {
+          "type": "doc_string_content_type",
+          "named": true
+        },
+        {
+          "type": "doc_string_delimiter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "doc_string_content",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "doc_string_content_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "doc_string_delimiter",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "feature",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "feature_keyword",
+          "named": true
+        },
+        {
+          "type": "rules",
+          "named": true
+        },
+        {
+          "type": "scenarios",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "given_step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "given_keyword",
+          "named": true
+        },
+        {
+          "type": "step_arguments",
+          "named": true
+        },
+        {
+          "type": "step_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "given_steps",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additional_step",
+          "named": true
+        },
+        {
+          "type": "given_step",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "rule_keyword",
+          "named": true
+        },
+        {
+          "type": "scenarios",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rules",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scenario",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "scenario_keyword",
+          "named": true
+        },
+        {
+          "type": "steps",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scenarios",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "background",
+          "named": true
+        },
+        {
+          "type": "scenario",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "data_table",
+          "named": true
+        },
+        {
+          "type": "doc_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "steps",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "given_steps",
+          "named": true
+        },
+        {
+          "type": "then_steps",
+          "named": true
+        },
+        {
+          "type": "when_step",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "then_step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "step_arguments",
+          "named": true
+        },
+        {
+          "type": "step_definition",
+          "named": true
+        },
+        {
+          "type": "then_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "then_steps",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additional_step",
+          "named": true
+        },
+        {
+          "type": "then_step",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "when_step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "step_arguments",
+          "named": true
+        },
+        {
+          "type": "step_definition",
+          "named": true
+        },
+        {
+          "type": "when_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "\"\"\"",
+    "named": false
+  },
+  {
+    "type": "```",
+    "named": false
+  },
+  {
+    "type": "and_keyword",
+    "named": true
+  },
+  {
+    "type": "asterisk_keyword",
+    "named": true
+  },
+  {
+    "type": "background_keyword",
+    "named": true
+  },
+  {
+    "type": "but_keyword",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "feature_keyword",
+    "named": true
+  },
+  {
+    "type": "given_keyword",
+    "named": true
+  },
+  {
+    "type": "rule_keyword",
+    "named": true
+  },
+  {
+    "type": "scenario_keyword",
+    "named": true
+  },
+  {
+    "type": "step_definition",
+    "named": true
+  },
+  {
+    "type": "tag",
+    "named": true
+  },
+  {
+    "type": "then_keyword",
+    "named": true
+  },
+  {
+    "type": "title",
+    "named": true
+  },
+  {
+    "type": "when_keyword",
+    "named": true
+  },
+  {
+    "type": "|",
+    "named": false
+  }
+]

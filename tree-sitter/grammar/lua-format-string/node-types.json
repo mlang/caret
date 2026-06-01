@@ -1,0 +1,185 @@
+[
+  {
+    "type": "conversion_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "conversion_specifier",
+          "named": true
+        },
+        {
+          "type": "flag",
+          "named": true
+        },
+        {
+          "type": "precision",
+          "named": true
+        },
+        {
+          "type": "width",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "format_string",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "escaped_percent_sign",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "precision",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "width",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": "A",
+    "named": false
+  },
+  {
+    "type": "B",
+    "named": false
+  },
+  {
+    "type": "E",
+    "named": false
+  },
+  {
+    "type": "G",
+    "named": false
+  },
+  {
+    "type": "X",
+    "named": false
+  },
+  {
+    "type": "a",
+    "named": false
+  },
+  {
+    "type": "b",
+    "named": false
+  },
+  {
+    "type": "c",
+    "named": false
+  },
+  {
+    "type": "d",
+    "named": false
+  },
+  {
+    "type": "e",
+    "named": false
+  },
+  {
+    "type": "escaped_percent_sign",
+    "named": true
+  },
+  {
+    "type": "f",
+    "named": false
+  },
+  {
+    "type": "g",
+    "named": false
+  },
+  {
+    "type": "i",
+    "named": false
+  },
+  {
+    "type": "o",
+    "named": false
+  },
+  {
+    "type": "p",
+    "named": false
+  },
+  {
+    "type": "q",
+    "named": false
+  },
+  {
+    "type": "s",
+    "named": false
+  },
+  {
+    "type": "text",
+    "named": true
+  },
+  {
+    "type": "u",
+    "named": false
+  },
+  {
+    "type": "x",
+    "named": false
+  }
+]
