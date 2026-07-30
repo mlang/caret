@@ -67,6 +67,7 @@ public:
     ~SigpipeGuard()
     { if (active) (void)sigaction(SIGPIPE, &old_action, nullptr); }
 };
+
 std::expected<void, std::error_code>
 write_all(int fd, std::string_view s)
 {
@@ -74,7 +75,7 @@ write_all(int fd, std::string_view s)
         const ssize_t n = write(fd, s.data(), s.size());
 
         if (n > 0) {
-            s.remove_prefix(static_cast<std::size_t>(n));
+            s.remove_prefix(n);
             continue;
         }
 
@@ -83,8 +84,7 @@ write_all(int fd, std::string_view s)
         }
 
         return std::unexpected(std::error_code{
-            n < 0 ? errno : EIO,
-            std::generic_category()
+            n < 0 ? errno : EIO, std::generic_category()
         });
     }
 
@@ -193,8 +193,7 @@ struct ParsedArguments
 
 Syntax::Language parse_language(std::string_view name)
 {
-    if (const auto language = Syntax::language_from(name))
-        return *language;
+    if (const auto language = Syntax::language_from(name)) return *language;
 
     throw UsageError(std::format("unsupported language: {}", name));
 }
@@ -350,8 +349,7 @@ public:
 
 class Terminal
 {
-    FILE *tty_in = nullptr;
-    FILE *tty_out = nullptr;
+    std::unique_ptr<std::FILE, int (*)(std::FILE *)> tty_in, tty_out;
     SCREEN *screen = nullptr;
     std::optional<termios> original_tty_attrs;
 
@@ -362,40 +360,24 @@ public:
     Terminal(const Terminal &) = delete;
     Terminal &operator=(const Terminal &) = delete;
 
-    [[nodiscard]] int input_fd() const { return fileno(tty_in); }
+    [[nodiscard]] int input_fd() const { return fileno(tty_in.get()); }
     void disable_flow_control();
 };
 
 Terminal::Terminal()
+: tty_in{fopen("/dev/tty", "r"), fclose}
+, tty_out{fopen("/dev/tty", "w"), fclose}
 {
-    tty_in = std::fopen("/dev/tty", "r");
-    if (tty_in == nullptr) {
-        fatal("open /dev/tty");
-    }
-
-    tty_out = std::fopen("/dev/tty", "w");
-    if (tty_out == nullptr) {
-        std::fclose(tty_in);
-        tty_in = nullptr;
-        fatal("open /dev/tty");
-    }
+    if (!tty_in || !tty_out) fatal("open /dev/tty");
 
     termios attrs{};
-    if (tcgetattr(fileno(tty_in), &attrs) < 0) {
-        std::fclose(tty_out);
-        std::fclose(tty_in);
-        tty_out = nullptr;
-        tty_in = nullptr;
+    if (tcgetattr(fileno(tty_in.get()), &attrs) < 0) {
         fatal("tcgetattr");
     }
     original_tty_attrs = attrs;
 
-    screen = newterm(nullptr, tty_out, tty_in);
+    screen = newterm(nullptr, tty_out.get(), tty_in.get());
     if (screen == nullptr) {
-        std::fclose(tty_out);
-        std::fclose(tty_in);
-        tty_out = nullptr;
-        tty_in = nullptr;
         throw std::runtime_error("failed to initialize terminal");
     }
 
@@ -408,15 +390,8 @@ Terminal::~Terminal()
         endwin();
         delscreen(screen);
     }
-    if (original_tty_attrs && tty_in != nullptr) {
-        (void)tcsetattr(fileno(tty_in), TCSANOW, &*original_tty_attrs);
-    }
-    if (tty_out != nullptr) {
-        (void)std::fclose(tty_out);
-    }
-    if (tty_in != nullptr) {
-        (void)std::fclose(tty_in);
-    }
+    if (original_tty_attrs && tty_in)
+        (void)tcsetattr(fileno(tty_in.get()), TCSANOW, &*original_tty_attrs);
 }
 
 void Terminal::disable_flow_control()
