@@ -1,7 +1,7 @@
+#include <algorithm>
 #include <mlang/curses.hpp>
 #include <mlang/text_buffer.hpp>
 
-#include <algorithm>
 #include <array>
 #include <cassert>
 #include <cerrno>
@@ -17,6 +17,7 @@
 #include <fcntl.h>
 #include <filesystem>
 #include <format>
+#include <numeric>
 #include <optional>
 #include <poll.h>
 #include <print>
@@ -274,14 +275,14 @@ struct Prompt
     bool active = false;
     wchar_t leader = L':';
     std::wstring text;
-    std::size_t cursor = 0;
+    size_t cursor = 0;
 };
 
 struct PromptHistory
 {
-    std::optional<std::size_t> index;
+    std::optional<size_t> index;
     std::wstring draft;
-    std::size_t draft_cursor = 0;
+    size_t draft_cursor = 0;
 
     void reset() {
         index.reset();
@@ -422,11 +423,9 @@ int wchar_width(wchar_t wc)
 
 int display_width(std::wstring_view text)
 {
-    int width = 0;
-    for (wchar_t wc : text) {
-        width += wchar_width(wc);
-    }
-    return width;
+    return std::transform_reduce(
+        text.begin(), text.end(), 0, std::plus{}, wchar_width
+    );
 }
 
 int clamp_col_for_row(int display_col, int row_width, int cols)
@@ -435,25 +434,25 @@ int clamp_col_for_row(int display_col, int row_width, int cols)
     return std::clamp(display_col, 0, max_col);
 }
 
-int display_col_for_position(const TextBuffer &doc, const DisplayRow &row, Syntax::Point position)
+int display_col_for_position(const TextBuffer &doc, const DisplayRow &row, Syntax::Point point)
 {
-    position = doc.clamp(position);
+    point = doc.clamp(point);
     assert(row.row < doc.line_count());
     assert(row.begin_column <= row.end_column);
     assert(row.end_column <= doc.line_bytes(row.row).size());
-    assert(row.row == position.row);
-    assert(row.begin_column <= position.byte_column);
-    assert(position.byte_column <= row.end_column);
+    assert(row.row == point.row);
+    assert(row.begin_column <= point.byte_column);
+    assert(point.byte_column <= row.end_column);
 
-    return doc.display_width(row.row, row.begin_column, position.byte_column);
+    return doc.display_width(row.row, row.begin_column, point.byte_column);
 }
 
-int cursor_display_col(const TextBuffer &doc, const DisplayRow &row, Syntax::Point position, int cols)
+int cursor_display_col(const TextBuffer &doc, const DisplayRow &row, Syntax::Point point, int cols)
 {
-    return clamp_col_for_row(display_col_for_position(doc, row, position), row.width, cols);
+    return clamp_col_for_row(display_col_for_position(doc, row, point), row.width, cols);
 }
 
-Syntax::Point position_for_display_col(const TextBuffer &doc, const DisplayRow &row, int display_col, int cols)
+Syntax::Point point_for_display_col(const TextBuffer &doc, const DisplayRow &row, int display_col, int cols)
 {
     assert(row.row < doc.line_count());
     assert(row.begin_column <= row.end_column);
@@ -461,11 +460,11 @@ Syntax::Point position_for_display_col(const TextBuffer &doc, const DisplayRow &
 
     display_col = clamp_col_for_row(display_col, row.width, cols);
     const std::wstring line = doc.line_wide(row.row);
-    const std::size_t begin = doc.wide_column({row.row, row.begin_column});
-    const std::size_t end = doc.wide_column({row.row, row.end_column});
+    const size_t begin = doc.wide_column({row.row, row.begin_column});
+    const size_t end = doc.wide_column({row.row, row.end_column});
     int col = 0;
 
-    for (std::size_t i = begin; i < end; i++) {
+    for (size_t i = begin; i < end; i++) {
         const int width = wchar_width(line[i]);
         if (display_col <= col) {
             return {row.row, doc.byte_column_for_wide_index(row.row, i)};
@@ -482,9 +481,7 @@ Syntax::Point position_for_display_col(const TextBuffer &doc, const DisplayRow &
 Syntax::PointRange ordered_range(Syntax::Point start, Syntax::Point end) noexcept
 {
     Syntax::PointRange range{start, end};
-    if (range.end < range.start) {
-        std::swap(range.start, range.end);
-    }
+    if (range.end < range.start) std::swap(range.start, range.end);
     return range;
 }
 
@@ -493,19 +490,19 @@ std::wstring decode_wide_string(std::string_view bytes)
     std::wstring decoded;
     std::mbstate_t state{};
     const char *data = bytes.data();
-    std::size_t remaining = bytes.size();
+    size_t remaining = bytes.size();
 
     while (remaining > 0) {
         wchar_t wc = 0;
-        const std::size_t n = std::mbrtowc(&wc, data, remaining, &state);
-        if (n == static_cast<std::size_t>(-1)) {
+        const size_t n = std::mbrtowc(&wc, data, remaining, &state);
+        if (n == static_cast<size_t>(-1)) {
             decoded.push_back(replacement_character);
             data++;
             remaining--;
             state = std::mbstate_t{};
             continue;
         }
-        if (n == static_cast<std::size_t>(-2)) {
+        if (n == static_cast<size_t>(-2)) {
             decoded.push_back(replacement_character);
             break;
         }
@@ -523,15 +520,13 @@ std::wstring decode_wide_string(std::string_view bytes)
     return decoded;
 }
 
-std::wstring status_position(const TextBuffer &doc, Syntax::Point position)
+std::wstring status_position(const TextBuffer &doc, Syntax::Point point)
 {
-    return std::format(L"{}:{}", position.row + 1, doc.wide_column(position) + 1);
+    return std::format(L"{}:{}", point.row + 1, doc.wide_column(point) + 1);
 }
 
 std::wstring status_range(
-    const TextBuffer &doc,
-    Syntax::Point mark,
-    Syntax::Point cursor
+    const TextBuffer &doc, Syntax::Point mark, Syntax::Point cursor
 )
 {
     const auto range = ordered_range(mark, cursor);
@@ -569,14 +564,14 @@ void load_brltty_clipboard(std::string_view bytes)
     }
 }
 
-int document_percent(const TextBuffer &doc, Syntax::Point position)
+int document_percent(const TextBuffer &doc, Syntax::Point point)
 {
     const std::uint64_t total = doc.line_count();
-    const std::uint64_t current = std::uint64_t(position.row) + 1;
+    const std::uint64_t current = std::uint64_t(point.row) + 1;
 
     if (current >= total) return 100;
 
-    return static_cast<int>((current * 100) / total);
+    return (current * 100) / total;
 }
 
 struct StatusLine
@@ -586,7 +581,7 @@ struct StatusLine
     std::wstring right;
 };
 
-std::wstring status_syntax(const TextBuffer &doc, Syntax::Point position)
+std::wstring status_syntax(const TextBuffer &doc, Syntax::Point point)
 {
     std::wstring text;
 
@@ -594,7 +589,7 @@ std::wstring status_syntax(const TextBuffer &doc, Syntax::Point position)
         text += decode_wide_string(canonical_name(*language));
     }
 
-    if (const auto node = doc.syntax_node_at(position)) {
+    if (const auto node = doc.syntax_node_at(point)) {
 	text = std::format(L"{}::{}",
             decode_wide_string(canonical_name(node->language())),
             decode_wide_string(node->type())
@@ -609,8 +604,8 @@ std::wstring status_location(
 )
 {
     return mark
-        ? status_range(doc, *mark, cursor)
-        : status_position(doc, cursor);
+         ? status_range(doc, *mark, cursor)
+         : status_position(doc, cursor);
 }
 
 StatusLine status_line(
@@ -667,17 +662,12 @@ std::wstring display_suffix(std::wstring_view text, int max_width)
         width += char_width;
     }
 
-    std::reverse(suffix.begin(), suffix.end());
+    std::ranges::reverse(suffix);
     return suffix;
 }
 
 void clear_status_row(int row, int cols)
-{
-    move(row, 0);
-    for (int i = 0; i < cols; i++) {
-        addch(' ');
-    }
-}
+{ mvhline(row, 0, ' ', cols); }
 
 int render_status_text(std::wstring_view text, int row, int cols)
 {
@@ -830,7 +820,7 @@ struct Document
 std::vector<Document> open_documents(const ParsedArguments &arguments)
 {
     std::vector<Document> documents;
-    documents.reserve(std::max<std::size_t>(1, arguments.inputs.size()));
+    documents.reserve(std::max<size_t>(1, arguments.inputs.size()));
 
     if (arguments.inputs.empty()) {
         Document document;
@@ -871,13 +861,13 @@ inline void Decoder::emit_byte(TextBuffer &doc, unsigned char byte)
 {
     const char c = static_cast<char>(byte);
     wchar_t wc = 0;
-    const std::size_t result = std::mbrtowc(&wc, &c, 1, &mb);
+    const size_t result = std::mbrtowc(&wc, &c, 1, &mb);
 
-    if (result == static_cast<std::size_t>(-2)) {
+    if (result == static_cast<size_t>(-2)) {
         return;
     }
 
-    if (result == static_cast<std::size_t>(-1)) {
+    if (result == static_cast<size_t>(-1)) {
         mb = std::mbstate_t{};
         append_stream_char(doc, replacement_character);
         return;
@@ -991,7 +981,7 @@ class Pager
 {
     ParsedArguments arguments;
     std::vector<Document> documents;
-    std::size_t document_index = 0;
+    size_t document_index = 0;
     std::optional<std::string> copied_text;
     Prompt prompt;
     SearchState search;
@@ -1019,7 +1009,7 @@ class Pager
     void set_mode(InputMode next_mode);
     bool dispatch_key(Key key);
 
-    void configure_terminal();
+    static void configure_terminal();
     void detect_languages();
     bool read_streams();
     void switch_file(Direction direction);
@@ -1295,7 +1285,7 @@ void Pager::move_down()
     const DisplayRow row = doc().text.display_row_at(doc().cursor, cols);
     if (const auto next = doc().text.next_display_row(row)) {
         const int cursor_x = cursor_display_col(doc().text, row, doc().cursor, cols);
-        doc().cursor = position_for_display_col(doc().text, *next, cursor_x, cols);
+        doc().cursor = point_for_display_col(doc().text, *next, cursor_x, cols);
     }
 }
 
@@ -1305,7 +1295,7 @@ void Pager::move_up()
     const DisplayRow row = doc().text.display_row_at(doc().cursor, cols);
     if (const auto prev = doc().text.previous_display_row(row)) {
         const int cursor_x = cursor_display_col(doc().text, row, doc().cursor, cols);
-        doc().cursor = position_for_display_col(doc().text, *prev, cursor_x, cols);
+        doc().cursor = point_for_display_col(doc().text, *prev, cursor_x, cols);
     }
 }
 
@@ -1324,7 +1314,7 @@ void Pager::move_page_down()
         if (!next) break;
         target = *next;
     }
-    doc().cursor = position_for_display_col(doc().text, target, cursor_x, cols);
+    doc().cursor = point_for_display_col(doc().text, target, cursor_x, cols);
 }
 
 void Pager::move_page_up()
@@ -1339,7 +1329,7 @@ void Pager::move_page_up()
         if (!prev) break;
         target = *prev;
     }
-    doc().cursor = position_for_display_col(doc().text, target, cursor_x, cols);
+    doc().cursor = point_for_display_col(doc().text, target, cursor_x, cols);
 }
 
 void Pager::move_right()
@@ -1349,9 +1339,9 @@ void Pager::move_right()
     const int cursor_x = cursor_display_col(doc().text, row, doc().cursor, cols);
     const int max_col = clamp_col_for_row(row.width, row.width, cols);
     if (cursor_x < max_col) {
-        doc().cursor = position_for_display_col(doc().text, row, cursor_x + 1, cols);
+        doc().cursor = point_for_display_col(doc().text, row, cursor_x + 1, cols);
     } else if (const auto next = doc().text.next_display_row(row)) {
-        doc().cursor = position_for_display_col(doc().text, *next, 0, cols);
+        doc().cursor = point_for_display_col(doc().text, *next, 0, cols);
     }
 }
 
@@ -1361,10 +1351,10 @@ void Pager::move_left()
     const DisplayRow row = doc().text.display_row_at(doc().cursor, cols);
     const int cursor_x = cursor_display_col(doc().text, row, doc().cursor, cols);
     if (cursor_x > 0) {
-        doc().cursor = position_for_display_col(doc().text, row, cursor_x - 1, cols);
+        doc().cursor = point_for_display_col(doc().text, row, cursor_x - 1, cols);
     } else if (const auto prev = doc().text.previous_display_row(row)) {
         const int previous_col = clamp_col_for_row(prev->width, prev->width, cols);
-        doc().cursor = position_for_display_col(doc().text, *prev, previous_col, cols);
+        doc().cursor = point_for_display_col(doc().text, *prev, previous_col, cols);
     }
 }
 
@@ -1405,14 +1395,14 @@ std::optional<WordKind> word_kind_at(const TextBuffer &doc, Syntax::Point positi
     return word_kind(*wc);
 }
 
-inline constexpr std::wstring_view brackets_for(Direction direction)
+constexpr std::wstring_view brackets_for(Direction direction)
 {
-    return bracket_chars[static_cast<std::size_t>(direction)];
+    return bracket_chars[static_cast<size_t>(direction)];
 }
 
 std::optional<wchar_t> matching_bracket(wchar_t wc, Direction direction)
 {
-    const std::size_t index = brackets_for(direction).find(wc);
+    const size_t index = brackets_for(direction).find(wc);
     if (index != std::wstring_view::npos) {
         return brackets_for(opposite(direction))[index];
     }
@@ -1496,7 +1486,7 @@ std::optional<Syntax::Point> matching_bracket_position(
     const auto match_bracket = matching_bracket(*start_bracket, start_direction);
     assert(match_bracket.has_value());
 
-    std::size_t depth = 1;
+    size_t depth = 1;
     Syntax::Point position = start;
     while (advance_bracket_scan(doc, position, start_direction)) {
         const auto wc = doc.char_at(position);
@@ -1744,10 +1734,10 @@ void Pager::submit_command_prompt()
         return;
     }
 
-    const std::size_t line_count = doc().text.line_count();
-    std::size_t line = 0;
+    const size_t line_count = doc().text.line_count();
+    size_t line = 0;
     for (wchar_t ch : submitted_command) {
-        const std::size_t digit = static_cast<std::size_t>(ch - L'0');
+        const auto digit = static_cast<size_t>(ch - L'0');
         if (line >= line_count
             || digit > line_count
             || line > (line_count - digit) / 10) {
@@ -1757,7 +1747,7 @@ void Pager::submit_command_prompt()
         line = line * 10 + digit;
     }
 
-    const std::size_t row = line == 0
+    const size_t row = line == 0
         ? 0
         : std::min(line - 1, line_count - 1);
     doc().cursor = {static_cast<uint32_t>(row), 0};
@@ -1933,7 +1923,7 @@ PromptDisplay prompt_display(const Prompt &prompt, int cols)
     if (cols <= 0) return {};
 
     const int cursor_width = std::max(0, cols - 2);
-    std::size_t begin = prompt.cursor;
+    size_t begin = prompt.cursor;
     int width_before_cursor = 0;
     while (begin > 0) {
         const int char_width = wchar_width(prompt.text[begin - 1]);
@@ -1945,7 +1935,7 @@ PromptDisplay prompt_display(const Prompt &prompt, int cols)
     std::wstring text(1, prompt.leader);
     int visible_width = 0;
     const int available_width = cols - 1;
-    for (std::size_t i = begin; i < prompt.text.size(); i++) {
+    for (size_t i = begin; i < prompt.text.size(); i++) {
         const int char_width = wchar_width(prompt.text[i]);
         if (visible_width + char_width > available_width) break;
         text.push_back(prompt.text[i]);
@@ -2022,10 +2012,7 @@ Pager::Pager(ParsedArguments parsed_arguments)
         return pager.handle_find_char_key(Direction::Backward, key);
     }
 }
-, normal_keymap{}
 , prompt_keymap{&Pager::handle_prompt_default}
-, search_prompt_keymap{}
-, command_prompt_keymap{}
 , isearch_keymap{&Pager::handle_isearch_default}
 , key_dispatcher{normal_keymap}
 {
@@ -2256,10 +2243,10 @@ void Pager::render()
     erase();
     for (int y = 0; y < screen.content_rows; y++) {
         const std::wstring line = doc().text.line_wide(row.row);
-        const std::size_t begin = doc().text.wide_column({row.row, row.begin_column});
-        const std::size_t end = doc().text.wide_column({row.row, row.end_column});
+        const size_t begin = doc().text.wide_column({row.row, row.begin_column});
+        const size_t end = doc().text.wide_column({row.row, row.end_column});
         move(y, 0);
-        for (std::size_t i = begin; i < end; i++) {
+        for (size_t i = begin; i < end; i++) {
             const Syntax::Point position{
                 row.row,
                 doc().text.byte_column_for_wide_index(row.row, i)
@@ -2398,30 +2385,28 @@ bool Pager::read_streams()
     if (result == 0) return false;
 
     bool activity = false;
-    for (std::size_t i = 0; i < fds.size(); ++i) {
-        if (!(fds[i].revents & (POLLIN | POLLHUP | POLLERR | POLLNVAL))) {
+    for (auto [fd, document]: std::views::zip(fds, polled_documents)) {
+        if (!(fd.revents & (POLLIN | POLLHUP | POLLERR | POLLNVAL)))
             continue;
-        }
 
-        Document &document = *polled_documents[i];
-        if (!document.stream->read_available(document.text)) continue;
+        if (!document->stream->read_available(document->text)) continue;
         activity = true;
-        document.cursor = document.text.clamp(document.cursor);
-        document.top = document.text.clamp(document.top);
-        document.mark = document.mark.transform(
-            [&](Syntax::Point mark) { return document.text.clamp(mark); }
+        document->cursor = document->text.clamp(document->cursor);
+        document->top = document->text.clamp(document->top);
+        document->mark = document->mark.transform(
+            [&](Syntax::Point mark) { return document->text.clamp(mark); }
         );
 
-        if (&document == &doc() && search.incremental.active) {
+        if (document == &doc() && search.incremental.active) {
             auto &incremental = search.incremental;
-            incremental.restore_cursor = document.text.clamp(
+            incremental.restore_cursor = document->text.clamp(
                 incremental.restore_cursor
             );
-            incremental.search_origin = document.text.clamp(
+            incremental.search_origin = document->text.clamp(
                 incremental.search_origin
             );
             incremental.restore_mark = incremental.restore_mark.transform(
-                [&](Syntax::Point mark) { return document.text.clamp(mark); }
+                [&](Syntax::Point mark) { return document->text.clamp(mark); }
             );
         }
     }

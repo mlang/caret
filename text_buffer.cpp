@@ -301,7 +301,7 @@ std::optional<Syntax::PointRange> syntax_node_range(
 
         const std::size_t match_begin = search_begin
             + static_cast<std::size_t>(match.position());
-        const std::size_t match_length = static_cast<std::size_t>(match.length());
+        const auto match_length = static_cast<std::size_t>(match.length());
 
         if (match_begin > max_begin) return std::nullopt;
 
@@ -343,7 +343,7 @@ std::optional<Syntax::PointRange> syntax_node_range(
 
         const std::size_t match_begin = search_begin
             + static_cast<std::size_t>(match.position());
-        const std::size_t match_length = static_cast<std::size_t>(match.length());
+        const auto match_length = static_cast<std::size_t>(match.length());
         const std::size_t match_end = match_begin + match_length;
 
         if (match_end > max_end) break;

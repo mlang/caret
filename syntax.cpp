@@ -2936,7 +2936,8 @@ bool eval_predicate(
             ) != haystack.end();
 
         return negated ? !found : found;
-    } else if (expr.name == "eq?" || expr.name == "not-eq?") {
+    }
+    if (expr.name == "eq?" || expr.name == "not-eq?") {
         const auto negated = expr.name == "not-eq?";
         if (expr.steps.size() != 2) return false;
 
@@ -2947,7 +2948,8 @@ bool eval_predicate(
 
         bool equal = *lhs == *rhs;
         return negated ? !equal : equal;
-    } else if (expr.name == "match?" || expr.name == "not-match?") {
+    }
+    if (expr.name == "match?" || expr.name == "not-match?") {
         const auto negated = expr.name == "not-match?";
 
         // Expected form:
@@ -3023,7 +3025,8 @@ std::vector<Injection> discover_injections(
             if (!eval_predicate(query, match, predicate, source)) {
                 skip = true;
                 break;
-            } else if (predicate.name == "set!") {
+            }
+            if (predicate.name == "set!") {
                 assert(!predicate.steps.empty());
                 const TSQueryPredicateStep& property = predicate.steps.front();
                 if (property.type == TSQueryPredicateStepTypeString) {
