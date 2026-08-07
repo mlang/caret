@@ -27,7 +27,7 @@ struct DisplayRow
     Syntax::Point end() const noexcept { return {row, end_column}; }
 
     [[nodiscard]] Syntax::PointRange range() const noexcept
-    { return Syntax::PointRange{begin(), end()}; }
+    { return {begin(), end()}; }
 
     [[nodiscard]] friend auto operator<=>(DisplayRow lhs, DisplayRow rhs) noexcept
     { return lhs.begin() <=> rhs.begin(); }
@@ -49,7 +49,7 @@ class TextBuffer
     std::optional<Syntax::Language> active_language;
     mutable std::optional<Syntax> syntax;
     bool parsing_suspended = false;
-    std::vector<Syntax::Edit> pending_syntax_edits;
+    std::vector<Syntax::Edit> pending_edits;
 
     [[nodiscard]] uint32_t line_end_byte(uint32_t row) const;
     [[nodiscard]] uint32_t last_row() const noexcept;
@@ -135,7 +135,7 @@ public:
     [[nodiscard]] Syntax::PointRange clamp(Syntax::PointRange range) const;
 
     [[nodiscard]] uint32_t byte_offset(Syntax::Point p) const;
-    [[nodiscard]] Syntax::Point position_at_byte(uint32_t byte) const;
+    [[nodiscard]] Syntax::Point point_at_byte(uint32_t byte) const;
 
     [[nodiscard]] std::optional<wchar_t> char_at(Syntax::Point p) const;
     [[nodiscard]] std::optional<Syntax::Point> next_position(Syntax::Point) const;

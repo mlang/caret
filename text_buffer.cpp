@@ -83,15 +83,9 @@ Decoded decode_one(std::u8string_view text)
 {
     assert(!text.empty());
 
-    const auto fail = [] {
-        return Decoded{replacement_character, 1};
-    };
-
     const auto b0 = static_cast<unsigned char>(text[0]);
 
-    if (b0 < 0x80) {
-        return Decoded{static_cast<wchar_t>(b0), 1};
-    }
+    if (b0 < 0x80) return {static_cast<wchar_t>(b0), 1};
 
     char32_t cp = 0;
     char32_t min = 0;
@@ -110,28 +104,28 @@ Decoded decode_one(std::u8string_view text)
         min = 0x10000;
         n = 4;
     } else {
-        return fail();
+        return {replacement_character, 1};
     }
 
     if (text.size() < n) {
-        return fail();
+        return {replacement_character, 1};
     }
 
     for (uint32_t i = 1; i < n; ++i) {
         const auto byte = static_cast<unsigned char>(text[i]);
 
         if (!continuation(byte)) {
-            return fail();
+            return {replacement_character, 1};
         }
 
         cp = (cp << 6) | (byte & 0x3f);
     }
 
     if (cp < min || cp > 0x10ffff || (cp >= 0xd800 && cp <= 0xdfff)) {
-        return fail();
+        return {replacement_character, 1};
     }
 
-    return Decoded{static_cast<wchar_t>(cp), n};
+    return {static_cast<wchar_t>(cp), n};
 }
 
 std::wstring decode(std::u8string_view text)
@@ -170,7 +164,7 @@ int character_width(wchar_t wc)
     return p;
 }
 
-Syntax::Position syntax_position(uint32_t byte, Syntax::Point point) noexcept
+Syntax::Position position(uint32_t byte, Syntax::Point point) noexcept
 { return { .byte = {.index = byte}, .point = point }; }
 
 [[nodiscard]] bool syntax_node_matches(
@@ -437,10 +431,10 @@ std::optional<Syntax::PointRange> syntax_node_range(
 
     start_column = utf8::clamp_to_char_boundary(line, start_column);
 
-    if (line.empty()) return DisplayRow{cols, row, 0, 0, 0};
+    if (line.empty()) return {cols, row, 0, 0, 0};
 
     if (start_column >= line_size)
-        return DisplayRow{cols, row, line_size, line_size, 0};
+        return {cols, row, line_size, line_size, 0};
 
     int width = 0;
 
@@ -449,14 +443,14 @@ std::optional<Syntax::PointRange> syntax_node_range(
         const int char_width = character_width(decoded.wc);
 
         if (char_width > 0 && width > 0 && width + char_width > cols) {
-            return DisplayRow{cols, row, start_column, column, width};
+            return {cols, row, start_column, column, width};
         }
 
         width += char_width;
         column += decoded.bytes;
     }
 
-    return DisplayRow{cols, row, start_column, line_size, width};
+    return {cols, row, start_column, line_size, width};
 }
 
 [[nodiscard]] DisplayRow last_display_row_for_line(
@@ -559,7 +553,7 @@ void TextBuffer::swap(TextBuffer &other) noexcept
     swap(active_language, other.active_language);
     swap(syntax, other.syntax);
     swap(parsing_suspended, other.parsing_suspended);
-    swap(pending_syntax_edits, other.pending_syntax_edits);
+    swap(pending_edits, other.pending_edits);
 }
 
 TextBuffer::ReparseSuspension::ReparseSuspension(TextBuffer& text_buffer) noexcept
@@ -614,7 +608,7 @@ bool TextBuffer::set_language(Syntax::Language lang)
 
     active_language = lang;
     syntax.reset();
-    pending_syntax_edits.clear();
+    pending_edits.clear();
     return true;
 }
 
@@ -789,7 +783,7 @@ uint32_t TextBuffer::byte_offset(Syntax::Point p) const
     return line_start_byte[p.row] + p.byte_column;
 }
 
-Syntax::Point TextBuffer::position_at_byte(uint32_t byte) const
+Syntax::Point TextBuffer::point_at_byte(uint32_t byte) const
 {
     byte = std::min<decltype(byte)>(byte, utf8.size());
 
@@ -822,7 +816,7 @@ std::optional<Syntax::Point> TextBuffer::next_position(Syntax::Point p) const
     if (byte >= utf8.size()) return std::nullopt;
 
     const auto decoded = utf8::decode_one(bytes().substr(byte));
-    return position_at_byte(byte + decoded.bytes);
+    return point_at_byte(byte + decoded.bytes);
 }
 
 std::optional<Syntax::Point> TextBuffer::previous_position(Syntax::Point p) const
@@ -833,15 +827,15 @@ std::optional<Syntax::Point> TextBuffer::previous_position(Syntax::Point p) cons
         return std::nullopt;
     }
 
-    return position_at_byte(utf8::previous_char_start(utf8, byte));
+    return point_at_byte(utf8::previous_char_start(utf8, byte));
 }
 
 std::optional<Syntax::PointRange> TextBuffer::word_range_at(
-    Syntax::Point position, bool find_forward
+    Syntax::Point point, bool find_forward
 ) const
 {
     static const std::wregex keyword_character(LR"([[:alnum:]_])");
-    return word_range_at(position, keyword_character, find_forward);
+    return word_range_at(point, keyword_character, find_forward);
 }
 
 std::optional<Syntax::PointRange> TextBuffer::word_range_at(
@@ -1370,7 +1364,7 @@ void TextBuffer::apply_syntax_edit(Syntax::Edit edit)
     }
 
     if (parsing_suspended) {
-        pending_syntax_edits.push_back(edit);
+        pending_edits.push_back(edit);
         return;
     }
 
@@ -1379,13 +1373,13 @@ void TextBuffer::apply_syntax_edit(Syntax::Edit edit)
 
 void TextBuffer::flush_syntax_edits()
 {
-    if (!syntax || pending_syntax_edits.empty()) {
-        pending_syntax_edits.clear();
+    if (!syntax || pending_edits.empty()) {
+        pending_edits.clear();
         return;
     }
 
-    (void)syntax->edit(utf8, pending_syntax_edits);
-    pending_syntax_edits.clear();
+    (void)syntax->edit(utf8, pending_edits);
+    pending_edits.clear();
 }
 
 void TextBuffer::insert_at_end(std::u8string_view text)
@@ -1402,10 +1396,10 @@ void TextBuffer::insert_at_end(std::u8string_view text)
 
     const Syntax::Edit edit{
         .old = {
-            .start = syntax_position(start_byte, start_point),
-            .end = syntax_position(start_byte, start_point),
+            .start = position(start_byte, start_point),
+            .end = position(start_byte, start_point),
         },
-        .new_end = syntax_position(new_end_byte, new_end_point),
+        .new_end = position(new_end_byte, new_end_point),
     };
 
     utf8.append(text);
@@ -1425,15 +1419,15 @@ void TextBuffer::erase_previous_char()
 
     const auto old_end_byte = static_cast<uint32_t>(utf8.size());
     const auto start_byte = utf8::previous_char_start(utf8, old_end_byte);
-    const auto start_point = position_at_byte(start_byte);
-    const auto old_end_point = position_at_byte(old_end_byte);
+    const auto start_point = point_at_byte(start_byte);
+    const auto old_end_point = point_at_byte(old_end_byte);
 
     const Syntax::Edit edit{
         .old = {
-            .start = syntax_position(start_byte, start_point),
-            .end = syntax_position(old_end_byte, old_end_point),
+            .start = position(start_byte, start_point),
+            .end = position(old_end_byte, old_end_point),
         },
-        .new_end = syntax_position(start_byte, start_point),
+        .new_end = position(start_byte, start_point),
     };
 
     const bool erased_newline = utf8[start_byte] == u8'\n';
